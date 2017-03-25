@@ -46,375 +46,376 @@
     font-weight: bold;
 }
 </style>
-<h1>api-documentation for
+<h1>api documentation for
     <a
-        
+
         href="http://coffeescript.org"
-        
+
     >coffee-script (v1.12.4)</a>
 </h1>
+<h4>Unfancy JavaScript</h4>
 <div class="apidocSectionDiv"><a
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
 ><h1>table of contents</h1></a><ol>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.coffee-script">module coffee-script</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script._compileFile">
             function <span class="apidocSignatureSpan">coffee-script.</span>_compileFile
             <span class="apidocSignatureSpan">(filename, sourceMap, inlineMap)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.compile">
             function <span class="apidocSignatureSpan">coffee-script.</span>compile
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.eval">
             function <span class="apidocSignatureSpan">coffee-script.</span>eval
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.nodes">
             function <span class="apidocSignatureSpan">coffee-script.</span>nodes
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.register">
             function <span class="apidocSignatureSpan">coffee-script.</span>register
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.run">
             function <span class="apidocSignatureSpan">coffee-script.</span>run
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.tokens">
             function <span class="apidocSignatureSpan">coffee-script.</span>tokens
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffee-script.</span>FILE_EXTENSIONS</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffee-script.</span>coffee_script</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffee-script.</span>helpers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">coffee-script.</span>VERSION</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.coffee-script.coffee_script">module coffee-script.coffee_script</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.coffee_script._compileFile">
             function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>_compileFile
             <span class="apidocSignatureSpan">(filename, sourceMap, inlineMap)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.coffee_script.compile">
             function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>compile
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.coffee_script.eval">
             function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>eval
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.coffee_script.nodes">
             function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>nodes
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.coffee_script.register">
             function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>register
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.coffee_script.run">
             function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>run
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.coffee_script.tokens">
             function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>tokens
             <span class="apidocSignatureSpan">(code, options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>FILE_EXTENSIONS</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>helpers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>VERSION</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.coffee-script.helpers">module coffee-script.helpers</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.addLocationDataFn">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>addLocationDataFn
             <span class="apidocSignatureSpan">(first, last)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.baseFileName">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>baseFileName
             <span class="apidocSignatureSpan">(file, stripExt, useWinPathSep)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.compact">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>compact
             <span class="apidocSignatureSpan">(array)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.count">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>count
             <span class="apidocSignatureSpan">(string, substr)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.del">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>del
             <span class="apidocSignatureSpan">(obj, key)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.ends">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>ends
             <span class="apidocSignatureSpan">(string, literal, back)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.extend">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>extend
             <span class="apidocSignatureSpan">(object, properties)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.flatten">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>flatten
             <span class="apidocSignatureSpan">(array)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.invertLiterate">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>invertLiterate
             <span class="apidocSignatureSpan">(code)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.isCoffee">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>isCoffee
             <span class="apidocSignatureSpan">(file)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.isLiterate">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>isLiterate
             <span class="apidocSignatureSpan">(file)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.locationDataToString">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>locationDataToString
             <span class="apidocSignatureSpan">(obj)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.merge">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>merge
             <span class="apidocSignatureSpan">(options, overrides)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.nameWhitespaceCharacter">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>nameWhitespaceCharacter
             <span class="apidocSignatureSpan">(string)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.repeat">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>repeat
             <span class="apidocSignatureSpan">(str, n)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.some">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>some
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.starts">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>starts
             <span class="apidocSignatureSpan">(string, literal, start)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.throwSyntaxError">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>throwSyntaxError
             <span class="apidocSignatureSpan">(message, location)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.coffee-script.helpers.updateSyntaxError">
             function <span class="apidocSignatureSpan">coffee-script.helpers.</span>updateSyntaxError
             <span class="apidocSignatureSpan">(error, code, filename)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.coffee-script" id="apidoc.module.coffee-script">module coffee-script</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.coffee-script._compileFile" id="apidoc.element.coffee-script._compileFile">
         function <span class="apidocSignatureSpan">coffee-script.</span>_compileFile
@@ -448,9 +449,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.compile" id="apidoc.element.coffee-script.compile">
         function <span class="apidocSignatureSpan">coffee-script.</span>compile
@@ -475,9 +476,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.eval" id="apidoc.element.coffee-script.eval">
         function <span class="apidocSignatureSpan">coffee-script.</span>eval
@@ -552,9 +553,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.nodes" id="apidoc.element.coffee-script.nodes">
         function <span class="apidocSignatureSpan">coffee-script.</span>nodes
@@ -579,9 +580,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.register" id="apidoc.element.coffee-script.register">
         function <span class="apidocSignatureSpan">coffee-script.</span>register
@@ -594,9 +595,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.run" id="apidoc.element.coffee-script.run">
         function <span class="apidocSignatureSpan">coffee-script.</span>run
@@ -622,9 +623,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.tokens" id="apidoc.element.coffee-script.tokens">
         function <span class="apidocSignatureSpan">coffee-script.</span>tokens
@@ -649,22 +650,22 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.coffee-script.coffee_script" id="apidoc.module.coffee-script.coffee_script">module coffee-script.coffee_script</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.coffee_script._compileFile" id="apidoc.element.coffee-script.coffee_script._compileFile">
         function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>_compileFile
@@ -698,9 +699,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.coffee_script.compile" id="apidoc.element.coffee-script.coffee_script.compile">
         function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>compile
@@ -725,9 +726,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.coffee_script.eval" id="apidoc.element.coffee-script.coffee_script.eval">
         function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>eval
@@ -802,9 +803,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.coffee_script.nodes" id="apidoc.element.coffee-script.coffee_script.nodes">
         function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>nodes
@@ -829,9 +830,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.coffee_script.register" id="apidoc.element.coffee-script.coffee_script.register">
         function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>register
@@ -844,9 +845,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.coffee_script.run" id="apidoc.element.coffee-script.coffee_script.run">
         function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>run
@@ -872,9 +873,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.coffee_script.tokens" id="apidoc.element.coffee-script.coffee_script.tokens">
         function <span class="apidocSignatureSpan">coffee-script.coffee_script.</span>tokens
@@ -899,20 +900,20 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.coffee-script.helpers" id="apidoc.module.coffee-script.helpers">module coffee-script.helpers</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.addLocationDataFn" id="apidoc.element.coffee-script.helpers.addLocationDataFn">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>addLocationDataFn
@@ -930,9 +931,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.baseFileName" id="apidoc.element.coffee-script.helpers.baseFileName">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>baseFileName
@@ -963,9 +964,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.compact" id="apidoc.element.coffee-script.helpers.compact">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>compact
@@ -986,9 +987,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.count" id="apidoc.element.coffee-script.helpers.count">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>count
@@ -1009,9 +1010,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.del" id="apidoc.element.coffee-script.helpers.del">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>del
@@ -1027,9 +1028,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.ends" id="apidoc.element.coffee-script.helpers.ends">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>ends
@@ -1044,9 +1045,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.extend" id="apidoc.element.coffee-script.helpers.extend">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>extend
@@ -1064,9 +1065,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.flatten" id="apidoc.element.coffee-script.helpers.flatten">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>flatten
@@ -1089,9 +1090,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.invertLiterate" id="apidoc.element.coffee-script.helpers.invertLiterate">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>invertLiterate
@@ -1122,9 +1123,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.isCoffee" id="apidoc.element.coffee-script.helpers.isCoffee">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>isCoffee
@@ -1137,9 +1138,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.isLiterate" id="apidoc.element.coffee-script.helpers.isLiterate">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>isLiterate
@@ -1152,9 +1153,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.locationDataToString" id="apidoc.element.coffee-script.helpers.locationDataToString">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>locationDataToString
@@ -1170,17 +1171,17 @@
     locationData = obj;
   }
   if (locationData) {
-    return ((locationData.first_line + 1) + &#x22;:&#x22; + (locationData.first_column + 1) + &#x22;-&#x22;) + ((locationData.last_line + 1) + &#x22;:&#x22; +\
- (locationData.last_column + 1));
+    return ((locationData.first_line + 1) + &#x22;:&#x22; + (locationData.first_column + 1) + &#x22;-&#x22;) + ((locationData.last_line + 1) + &#x22;:&#x22; + (
+locationData.last_column + 1));
   } else {
     return &#x22;No location data&#x22;;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.merge" id="apidoc.element.coffee-script.helpers.merge">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>merge
@@ -1193,9 +1194,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.nameWhitespaceCharacter" id="apidoc.element.coffee-script.helpers.nameWhitespaceCharacter">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>nameWhitespaceCharacter
@@ -1219,9 +1220,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.repeat" id="apidoc.element.coffee-script.helpers.repeat">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>repeat
@@ -1243,9 +1244,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.some" id="apidoc.element.coffee-script.helpers.some">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>some
@@ -1256,9 +1257,9 @@
     <li>description and source-code<pre class="apidocCodePre">function some() { [native code] }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.starts" id="apidoc.element.coffee-script.helpers.starts">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>starts
@@ -1271,9 +1272,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.throwSyntaxError" id="apidoc.element.coffee-script.helpers.throwSyntaxError">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>throwSyntaxError
@@ -1291,9 +1292,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.coffee-script.helpers.updateSyntaxError" id="apidoc.element.coffee-script.helpers.updateSyntaxError">
         function <span class="apidocSignatureSpan">coffee-script.helpers.</span>updateSyntaxError
@@ -1311,8 +1312,8 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocFooterDiv">
