@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://coffeescript.org"
-
-    >coffee-script (v1.12.4)</a>
+    <a href="http://coffeescript.org">coffee-script (v1.12.4)</a>
 </h1>
 <h4>Unfancy JavaScript</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.coffee-script">module coffee-script</a><ol>
 
@@ -359,7 +352,7 @@
   if (inlineMap == null) {
     inlineMap = false;
   }
-  raw = fs.readFileSync(filename, &#x27;utf8&#x27;);
+  raw = fs.readFileSync(filename, 'utf8');
   stripped = raw.charCodeAt(0) === 0xFEFF ? raw.substring(1) : raw;
   try {
     answer = compile(stripped, {
@@ -396,7 +389,7 @@
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -443,19 +436,19 @@
     } else {
       sandbox = global;
     }
-    sandbox.__filename = options.filename || &#x27;eval&#x27;;
+    sandbox.__filename = options.filename || 'eval';
     sandbox.__dirname = path.dirname(sandbox.__filename);
     if (!(sandbox !== global || sandbox.module || sandbox.require)) {
-      Module = require(&#x27;module&#x27;);
-      sandbox.module = _module = new Module(options.modulename || &#x27;eval&#x27;);
+      Module = require('module');
+      sandbox.module = _module = new Module(options.modulename || 'eval');
       sandbox.require = _require = function(path) {
         return Module._load(path, _module, true);
       };
       _module.filename = sandbox.__filename;
       ref3 = Object.getOwnPropertyNames(require);
-      for (i = 0, len = ref3.length; i &#x3c; len; i++) {
+      for (i = 0, len = ref3.length; i &lt; len; i++) {
         r = ref3[i];
-        if (r !== &#x27;paths&#x27; &#x26;&#x26; r !== &#x27;arguments&#x27; &#x26;&#x26; r !== &#x27;caller&#x27;) {
+        if (r !== 'paths' &amp;&amp; r !== 'arguments' &amp;&amp; r !== 'caller') {
           _require[r] = require[r];
         }
       }
@@ -500,7 +493,7 @@
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -519,7 +512,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">register = function () {
-  return require(&#x27;./register&#x27;);
+  return require('./register');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -539,10 +532,10 @@
     options = {};
   }
   mainModule = require.main;
-  mainModule.filename = process.argv[1] = options.filename ? fs.realpathSync(options.filename) : &#x27;&#x3c;anonymous&#x3e;&#x27;;
-  mainModule.moduleCache &#x26;&#x26; (mainModule.moduleCache = {});
-  dir = options.filename != null ? path.dirname(fs.realpathSync(options.filename)) : fs.realpathSync(&#x27;.&#x27;);
-  mainModule.paths = require(&#x27;module&#x27;)._nodeModulePaths(dir);
+  mainModule.filename = process.argv[1] = options.filename ? fs.realpathSync(options.filename) : '&lt;anonymous&gt;';
+  mainModule.moduleCache &amp;&amp; (mainModule.moduleCache = {});
+  dir = options.filename != null ? path.dirname(fs.realpathSync(options.filename)) : fs.realpathSync('.');
+  mainModule.paths = require('module')._nodeModulePaths(dir);
   if (!helpers.isCoffee(mainModule.filename) || require.extensions) {
     answer = compile(code, options);
     code = (ref = answer.js) != null ? ref : answer;
@@ -570,7 +563,7 @@
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -603,7 +596,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addLocationDataFn = function (first, last) {
   return function(obj) {
-    if (((typeof obj) === &#x27;object&#x27;) &#x26;&#x26; (!!obj[&#x27;updateLocationDataIfMissing&#x27;])) {
+    if (((typeof obj) === 'object') &amp;&amp; (!!obj['updateLocationDataIfMissing'])) {
       obj.updateLocationDataIfMissing(buildLocationData(first, last));
     }
     return obj;
@@ -632,15 +625,15 @@
   pathSep = useWinPathSep ? /\\|\// : /\//;
   parts = file.split(pathSep);
   file = parts[parts.length - 1];
-  if (!(stripExt &#x26;&#x26; file.indexOf(&#x27;.&#x27;) &#x3e;= 0)) {
+  if (!(stripExt &amp;&amp; file.indexOf('.') &gt;= 0)) {
     return file;
   }
-  parts = file.split(&#x27;.&#x27;);
+  parts = file.split('.');
   parts.pop();
-  if (parts[parts.length - 1] === &#x27;coffee&#x27; &#x26;&#x26; parts.length &#x3e; 1) {
+  if (parts[parts.length - 1] === 'coffee' &amp;&amp; parts.length &gt; 1) {
     parts.pop();
   }
-  return parts.join(&#x27;.&#x27;);
+  return parts.join('.');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -657,7 +650,7 @@
     <li>description and source-code<pre class="apidocCodePre">compact = function (array) {
   var i, item, len1, results;
   results = [];
-  for (i = 0, len1 = array.length; i &#x3c; len1; i++) {
+  for (i = 0, len1 = array.length; i &lt; len1; i++) {
     item = array[i];
     if (item) {
       results.push(item);
@@ -758,9 +751,9 @@
     <li>description and source-code<pre class="apidocCodePre">flatten = function (array) {
   var element, flattened, i, len1;
   flattened = [];
-  for (i = 0, len1 = array.length; i &#x3c; len1; i++) {
+  for (i = 0, len1 = array.length; i &lt; len1; i++) {
     element = array[i];
-    if (&#x27;[object Array]&#x27; === Object.prototype.toString.call(element)) {
+    if ('[object Array]' === Object.prototype.toString.call(element)) {
       flattened = flattened.concat(flatten(element));
     } else {
       flattened.push(element);
@@ -785,21 +778,21 @@
   maybe_code = true;
   lines = (function() {
     var i, len1, ref1, results;
-    ref1 = code.split(&#x27;\n&#x27;);
+    ref1 = code.split('\n');
     results = [];
-    for (i = 0, len1 = ref1.length; i &#x3c; len1; i++) {
+    for (i = 0, len1 = ref1.length; i &lt; len1; i++) {
       line = ref1[i];
-      if (maybe_code &#x26;&#x26; /^([ ]{4}|[ ]{0,3}\t)/.test(line)) {
+      if (maybe_code &amp;&amp; /^([ ]{4}|[ ]{0,3}\t)/.test(line)) {
         results.push(line);
       } else if (maybe_code = /^\s*$/.test(line)) {
         results.push(line);
       } else {
-        results.push(&#x27;# &#x27; + line);
+        results.push('# ' + line);
       }
     }
     return results;
   })();
-  return lines.join(&#x27;\n&#x27;);
+  return lines.join('\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -845,16 +838,16 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">locationDataToString = function (obj) {
   var locationData;
-  if ((&#x22;2&#x22; in obj) &#x26;&#x26; (&#x22;first_line&#x22; in obj[2])) {
+  if (("2" in obj) &amp;&amp; ("first_line" in obj[2])) {
     locationData = obj[2];
-  } else if (&#x22;first_line&#x22; in obj) {
+  } else if ("first_line" in obj) {
     locationData = obj;
   }
   if (locationData) {
-    return ((locationData.first_line + 1) + &#x22;:&#x22; + (locationData.first_column + 1) + &#x22;-&#x22;) + ((locationData.last_line + 1) + &#x22;:&#x22; + (
+    return ((locationData.first_line + 1) + ":" + (locationData.first_column + 1) + "-") + ((locationData.last_line + 1) + ":" + (
 locationData.last_column + 1));
   } else {
-    return &#x22;No location data&#x22;;
+    return "No location data";
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -886,14 +879,14 @@ locationData.last_column + 1));
     <ul>
     <li>description and source-code<pre class="apidocCodePre">nameWhitespaceCharacter = function (string) {
   switch (string) {
-    case &#x27; &#x27;:
-      return &#x27;space&#x27;;
-    case &#x27;\n&#x27;:
-      return &#x27;newline&#x27;;
-    case &#x27;\r&#x27;:
-      return &#x27;carriage return&#x27;;
-    case &#x27;\t&#x27;:
-      return &#x27;tab&#x27;;
+    case ' ':
+      return 'space';
+    case '\n':
+      return 'newline';
+    case '\r':
+      return 'carriage return';
+    case '\t':
+      return 'tab';
     default:
       return string;
   }
@@ -912,12 +905,12 @@ locationData.last_column + 1));
     <ul>
     <li>description and source-code<pre class="apidocCodePre">repeat = function (str, n) {
   var res;
-  res = &#x27;&#x27;;
-  while (n &#x3e; 0) {
-    if (n &#x26; 1) {
+  res = '';
+  while (n &gt; 0) {
+    if (n &amp; 1) {
       res += str;
     }
-    n &#x3e;&#x3e;&#x3e;= 1;
+    n &gt;&gt;&gt;= 1;
     str += str;
   }
   return res;
@@ -1012,30 +1005,30 @@ locationData.last_column + 1));
   if (opts == null) {
     opts = {};
   }
-  ref1 = process.versions.node.split(&#x27;.&#x27;).map(function(n) {
+  ref1 = process.versions.node.split('.').map(function(n) {
     return parseInt(n);
   }), major = ref1[0], minor = ref1[1], build = ref1[2];
-  if (major === 0 &#x26;&#x26; minor &#x3c; 8) {
-    console.warn(&#x22;Node 0.8.0+ required for CoffeeScript REPL&#x22;);
+  if (major === 0 &amp;&amp; minor &lt; 8) {
+    console.warn("Node 0.8.0+ required for CoffeeScript REPL");
     process.exit(1);
   }
   CoffeeScript.register();
-  process.argv = [&#x27;coffee&#x27;].concat(process.argv.slice(2));
+  process.argv = ['coffee'].concat(process.argv.slice(2));
   opts = merge(replDefaults, opts);
   repl = nodeREPL.start(opts);
   if (opts.prelude) {
-    runInContext(opts.prelude, repl.context, &#x27;prelude&#x27;);
+    runInContext(opts.prelude, repl.context, 'prelude');
   }
-  repl.on(&#x27;exit&#x27;, function() {
+  repl.on('exit', function() {
     if (!repl.rli.closed) {
-      return repl.outputStream.write(&#x27;\n&#x27;);
+      return repl.outputStream.write('\n');
     }
   });
   addMultilineHandler(repl);
   if (opts.historyFile) {
     addHistory(repl, opts.historyFile, opts.historyMaxInputSize);
   }
-  repl.commands[getCommandId(repl, &#x27;load&#x27;)].help = &#x27;Load code from a file into this REPL session&#x27;;
+  repl.commands[getCommandId(repl, 'load')].help = 'Load code from a file into this REPL session';
   return repl;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1050,3 +1043,4 @@ locationData.last_column + 1));
     ]
 </div>
 </div>
+</body></html>
