@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://coffeescript.org"
-
-    >coffee-script (v1.12.5)</a>
+    <a href="http://coffeescript.org">coffee-script (v1.12.5)</a>
 </h1>
 <h4>Unfancy JavaScript</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.coffee-script">module coffee-script</a><ol>
 
@@ -1650,7 +1643,7 @@
   if (inlineMap == null) {
     inlineMap = false;
   }
-  raw = fs.readFileSync(filename, &#x27;utf8&#x27;);
+  raw = fs.readFileSync(filename, 'utf8');
   stripped = raw.charCodeAt(0) === 0xFEFF ? raw.substring(1) : raw;
   try {
     answer = compile(stripped, {
@@ -1702,7 +1695,7 @@
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -1710,8 +1703,8 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-if ((typeof btoa !== &#x22;undefined&#x22; &#x26;&#x26; btoa !== null) &#x26;&#x26; (typeof JSON !== &#x22;undefined&#x22; &#x26
-;&#x26; JSON !== null)) {
+if ((typeof btoa !== "undefined" &amp;&amp; btoa !== null) &amp;&amp; (typeof JSON !== "undefined" &amp;
+;&amp; JSON !== null)) {
   compile = function(code, options) {
     if (options == null) {
       options = {};
@@ -1740,31 +1733,31 @@ CoffeeScript.load = function(url, callback, options, hold) {
     <li>description and source-code<pre class="apidocCodePre">function emit(type) {
   var er, handler, len, args, i, events, domain;
   var needDomainExit = false;
-  var doError = (type === &#x27;error&#x27;);
+  var doError = (type === 'error');
 
   events = this._events;
   if (events)
-    doError = (doError &#x26;&#x26; events.error == null);
+    doError = (doError &amp;&amp; events.error == null);
   else if (!doError)
     return false;
 
   domain = this.domain;
 
-  // If there is no &#x27;error&#x27; event listener then throw.
+  // If there is no 'error' event listener then throw.
   if (doError) {
     er = arguments[1];
     if (domain) {
       if (!er)
-        er = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event&#x27;);
+        er = new Error('Uncaught, unspecified "error" event');
       er.domainEmitter = this;
       er.domain = domain;
       er.domainThrown = false;
-      domain.emit(&#x27;error&#x27;, er);
+      domain.emit('error', er);
     } else if (er instanceof Error) {
-      throw er; // Unhandled &#x27;error&#x27; event
+      throw er; // Unhandled 'error' event
     } else {
       // At least give some kind of context to the user
-      var err = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event. (&#x27; + er + &#x27;)&#x27;);
+      var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
       err.context = er;
       throw err;
     }
@@ -1776,12 +1769,12 @@ CoffeeScript.load = function(url, callback, options, hold) {
   if (!handler)
     return false;
 
-  if (domain &#x26;&#x26; this !== process) {
+  if (domain &amp;&amp; this !== process) {
     domain.enter();
     needDomainExit = true;
   }
 
-  var isFn = typeof handler === &#x27;function&#x27;;
+  var isFn = typeof handler === 'function';
   len = arguments.length;
   switch (len) {
     // fast cases
@@ -1800,7 +1793,7 @@ CoffeeScript.load = function(url, callback, options, hold) {
     // slower
     default:
       args = new Array(len - 1);
-      for (i = 1; i &#x3c; len; i++)
+      for (i = 1; i &lt; len; i++)
         args[i - 1] = arguments[i];
       emitMany(handler, isFn, this, args);
   }
@@ -1818,7 +1811,7 @@ try {
     input: input,
     options: options
   };
-  CoffeeScript.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;compile&#x27;, task);
+  CoffeeScript.<span class="apidocCodeKeywordSpan">emit</span>('compile', task);
   if (o.tokens) {
     return printTokens(CoffeeScript.tokens(t.input, t.options));
   } else if (o.nodes) {
@@ -1860,7 +1853,7 @@ try {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function eventNames() {
-  return this._eventsCount &#x3e; 0 ? Reflect.ownKeys(this._events) : [];
+  return this._eventsCount &gt; 0 ? Reflect.ownKeys(this._events) : [];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1895,7 +1888,7 @@ try {
   if (events) {
     const evlistener = events[type];
 
-    if (typeof evlistener === &#x27;function&#x27;) {
+    if (typeof evlistener === 'function') {
       return 1;
     } else if (evlistener) {
       return evlistener.length;
@@ -1927,7 +1920,7 @@ try {
     evlistener = events[type];
     if (!evlistener)
       ret = [];
-    else if (typeof evlistener === &#x27;function&#x27;)
+    else if (typeof evlistener === 'function')
       ret = [evlistener];
     else
       ret = arrayClone(evlistener, evlistener.length);
@@ -1942,13 +1935,13 @@ try {
   }
 } catch (error) {
   err = error;
-  CoffeeScript.emit(&#x27;failure&#x27;, err, task);
-  if (CoffeeScript.<span class="apidocCodeKeywordSpan">listeners</span>(&#x27;failure&#x27;).length) {
+  CoffeeScript.emit('failure', err, task);
+  if (CoffeeScript.<span class="apidocCodeKeywordSpan">listeners</span>('failure').length) {
     return;
   }
-  message = (err != null ? err.stack : void 0) || (&#x22;&#x22; + err);
+  message = (err != null ? err.stack : void 0) || ("" + err);
   if (o.watch) {
-    return printLine(message + &#x27;\x07&#x27;);
+    return printLine(message + '\x07');
   } else {
     printWarn(message);
 ...</pre></li>
@@ -1972,7 +1965,7 @@ try {
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -1982,7 +1975,7 @@ try {
   input: input,
   options: options
 };
-CoffeeScript.emit(&#x27;compile&#x27;, task);
+CoffeeScript.emit('compile', task);
 if (o.tokens) {
   return printTokens(CoffeeScript.tokens(t.input, t.options));
 } else if (o.nodes) {
@@ -1990,10 +1983,10 @@ if (o.tokens) {
 } else if (o.run) {
   CoffeeScript.register();
   if (opts.prelude) {
-    CoffeeScript[&#x22;eval&#x22;](opts.prelude, t.options);
+    CoffeeScript["eval"](opts.prelude, t.options);
   }
   return CoffeeScript.run(t.input, t.options);
-} else if (o.join &#x26;&#x26; t.file !== o.join) {
+} else if (o.join &amp;&amp; t.file !== o.join) {
 ...</pre></li>
     </ul>
 
@@ -2017,12 +2010,12 @@ compileStdio = function() {
   var buffers, stdin;
   buffers = [];
   stdin = process.openStdin();
-  stdin.<span class="apidocCodeKeywordSpan">on</span>(&#x27;data&#x27;, function(buffer) {
+  stdin.<span class="apidocCodeKeywordSpan">on</span>('data', function(buffer) {
     if (buffer) {
       return buffers.push(buffer);
     }
   });
-  return stdin.on(&#x27;end&#x27;, function() {
+  return stdin.on('end', function() {
     return compileScript(null, Buffer.concat(buffers).toString());
   });
 ...</pre></li>
@@ -2038,8 +2031,8 @@ compileStdio = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function once(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.on(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -2071,8 +2064,8 @@ compileStdio = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function prependOnceListener(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.prependListener(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -2089,15 +2082,15 @@ compileStdio = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">register = function () {
-  return require(&#x27;./register&#x27;);
+  return require('./register');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-helpers = require(&#x27;./helpers&#x27;);
+helpers = require('./helpers');
 
-optparse = require(&#x27;./optparse&#x27;);
+optparse = require('./optparse');
 
-CoffeeScript = require(&#x27;./coffee-script&#x27;);
+CoffeeScript = require('./coffee-script');
 
 CoffeeScript.<span class="apidocCodeKeywordSpan">register</span>();
 
@@ -2142,12 +2135,12 @@ switches = [];
   // emit removeListener for all listeners on all events
   if (arguments.length === 0) {
     var keys = Object.keys(events);
-    for (var i = 0, key; i &#x3c; keys.length; ++i) {
+    for (var i = 0, key; i &lt; keys.length; ++i) {
       key = keys[i];
-      if (key === &#x27;removeListener&#x27;) continue;
+      if (key === 'removeListener') continue;
       this.removeAllListeners(key);
     }
-    this.removeAllListeners(&#x27;removeListener&#x27;);
+    this.removeAllListeners('removeListener');
     this._events = new EventHandlers();
     this._eventsCount = 0;
     return this;
@@ -2155,7 +2148,7 @@ switches = [];
 
   listeners = events[type];
 
-  if (typeof listeners === &#x27;function&#x27;) {
+  if (typeof listeners === 'function') {
     this.removeListener(type, listeners);
   } else if (listeners) {
     // LIFO order
@@ -2181,8 +2174,8 @@ switches = [];
     <li>description and source-code<pre class="apidocCodePre">function removeListener(type, listener) {
   var list, events, position, i, originalListener;
 
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
 
   events = this._events;
   if (!events)
@@ -2198,12 +2191,12 @@ switches = [];
     else {
       delete events[type];
       if (events.removeListener)
-        this.emit(&#x27;removeListener&#x27;, type, list.listener || listener);
+        this.emit('removeListener', type, list.listener || listener);
     }
-  } else if (typeof list !== &#x27;function&#x27;) {
+  } else if (typeof list !== 'function') {
     position = -1;
 
-    for (i = list.length; i-- &#x3e; 0;) {
+    for (i = list.length; i-- &gt; 0;) {
       if (list[i] === listener || list[i].listener === listener) {
         originalListener = list[i].listener;
         position = i;
@@ -2211,7 +2204,7 @@ switches = [];
       }
     }
 
-    if (position &#x3c; 0)
+    if (position &lt; 0)
       return this;
 
     if (list.length === 1) {
@@ -2227,7 +2220,7 @@ switches = [];
     }
 
     if (events.removeListener)
-      this.emit(&#x27;removeListener&#x27;, type, originalListener || listener);
+      this.emit('removeListener', type, originalListener || listener);
   }
 
   return this;
@@ -2277,11 +2270,11 @@ switches = [];
 
 exports.run = function() {
   var arg, args, e, i, len, ref, results;
-  global.__originalDirname = fs.realpathSync(&#x27;.&#x27;);
+  global.__originalDirname = fs.realpathSync('.');
   process.chdir(cakefileDirectory(__originalDirname));
   args = process.argv.slice(2);
-  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync(&#x27;Cakefile&#x27;).toString(), {
-    filename: &#x27;Cakefile&#x27;
+  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync('Cakefile').toString(), {
+    filename: 'Cakefile'
   });
   oparse = new optparse.OptionParser(switches);
   if (!args.length) {
@@ -2301,8 +2294,8 @@ exports.run = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function setMaxListeners(n) {
-  if (typeof n !== &#x27;number&#x27; || n &#x3c; 0 || isNaN(n))
-    throw new TypeError(&#x27;&#x22;n&#x22; argument must be a positive number&#x27;);
+  if (typeof n !== 'number' || n &lt; 0 || isNaN(n))
+    throw new TypeError('"n" argument must be a positive number');
   this._maxListeners = n;
   return this;
 }</pre></li>
@@ -2342,7 +2335,7 @@ exports.run = function() {
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -2354,7 +2347,7 @@ t = task = {
   input: input,
   options: options
 };
-CoffeeScript.emit(&#x27;compile&#x27;, task);
+CoffeeScript.emit('compile', task);
 if (o.tokens) {
   return printTokens(CoffeeScript.<span class="apidocCodeKeywordSpan">tokens</span>(t.input, t.options));
 } else if (o.nodes) {
@@ -2362,7 +2355,7 @@ if (o.tokens) {
 } else if (o.run) {
   CoffeeScript.register();
   if (opts.prelude) {
-    CoffeeScript[&#x22;eval&#x22;](opts.prelude, t.options);
+    CoffeeScript["eval"](opts.prelude, t.options);
   }
 ...</pre></li>
     </ul>
@@ -2417,11 +2410,11 @@ if (o.tokens) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">run = function () {
   var arg, args, e, i, len, ref, results;
-  global.__originalDirname = fs.realpathSync(&#x27;.&#x27;);
+  global.__originalDirname = fs.realpathSync('.');
   process.chdir(cakefileDirectory(__originalDirname));
   args = process.argv.slice(2);
-  CoffeeScript.run(fs.readFileSync(&#x27;Cakefile&#x27;).toString(), {
-    filename: &#x27;Cakefile&#x27;
+  CoffeeScript.run(fs.readFileSync('Cakefile').toString(), {
+    filename: 'Cakefile'
   });
   oparse = new optparse.OptionParser(switches);
   if (!args.length) {
@@ -2431,11 +2424,11 @@ if (o.tokens) {
     options = oparse.parse(args);
   } catch (error) {
     e = error;
-    return fatalError(&#x22;&#x22; + e);
+    return fatalError("" + e);
   }
-  ref = options[&#x22;arguments&#x22;];
+  ref = options["arguments"];
   results = [];
-  for (i = 0, len = ref.length; i &#x3c; len; i++) {
+  for (i = 0, len = ref.length; i &lt; len; i++) {
     arg = ref[i];
     results.push(invoke(arg));
   }
@@ -2446,11 +2439,11 @@ if (o.tokens) {
 
 exports.run = function() {
   var arg, args, e, i, len, ref, results;
-  global.__originalDirname = fs.realpathSync(&#x27;.&#x27;);
+  global.__originalDirname = fs.realpathSync('.');
   process.chdir(cakefileDirectory(__originalDirname));
   args = process.argv.slice(2);
-  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync(&#x27;Cakefile&#x27;).toString(), {
-    filename: &#x27;Cakefile&#x27;
+  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync('Cakefile').toString(), {
+    filename: 'Cakefile'
   });
   oparse = new optparse.OptionParser(switches);
   if (!args.length) {
@@ -2482,7 +2475,7 @@ exports.run = function() {
   if (inlineMap == null) {
     inlineMap = false;
   }
-  raw = fs.readFileSync(filename, &#x27;utf8&#x27;);
+  raw = fs.readFileSync(filename, 'utf8');
   stripped = raw.charCodeAt(0) === 0xFEFF ? raw.substring(1) : raw;
   try {
     answer = compile(stripped, {
@@ -2534,7 +2527,7 @@ exports.run = function() {
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -2542,8 +2535,8 @@ exports.run = function() {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-if ((typeof btoa !== &#x22;undefined&#x22; &#x26;&#x26; btoa !== null) &#x26;&#x26; (typeof JSON !== &#x22;undefined&#x22; &#x26
-;&#x26; JSON !== null)) {
+if ((typeof btoa !== "undefined" &amp;&amp; btoa !== null) &amp;&amp; (typeof JSON !== "undefined" &amp;
+;&amp; JSON !== null)) {
   compile = function(code, options) {
     if (options == null) {
       options = {};
@@ -2572,31 +2565,31 @@ CoffeeScript.load = function(url, callback, options, hold) {
     <li>description and source-code<pre class="apidocCodePre">function emit(type) {
   var er, handler, len, args, i, events, domain;
   var needDomainExit = false;
-  var doError = (type === &#x27;error&#x27;);
+  var doError = (type === 'error');
 
   events = this._events;
   if (events)
-    doError = (doError &#x26;&#x26; events.error == null);
+    doError = (doError &amp;&amp; events.error == null);
   else if (!doError)
     return false;
 
   domain = this.domain;
 
-  // If there is no &#x27;error&#x27; event listener then throw.
+  // If there is no 'error' event listener then throw.
   if (doError) {
     er = arguments[1];
     if (domain) {
       if (!er)
-        er = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event&#x27;);
+        er = new Error('Uncaught, unspecified "error" event');
       er.domainEmitter = this;
       er.domain = domain;
       er.domainThrown = false;
-      domain.emit(&#x27;error&#x27;, er);
+      domain.emit('error', er);
     } else if (er instanceof Error) {
-      throw er; // Unhandled &#x27;error&#x27; event
+      throw er; // Unhandled 'error' event
     } else {
       // At least give some kind of context to the user
-      var err = new Error(&#x27;Uncaught, unspecified &#x22;error&#x22; event. (&#x27; + er + &#x27;)&#x27;);
+      var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
       err.context = er;
       throw err;
     }
@@ -2608,12 +2601,12 @@ CoffeeScript.load = function(url, callback, options, hold) {
   if (!handler)
     return false;
 
-  if (domain &#x26;&#x26; this !== process) {
+  if (domain &amp;&amp; this !== process) {
     domain.enter();
     needDomainExit = true;
   }
 
-  var isFn = typeof handler === &#x27;function&#x27;;
+  var isFn = typeof handler === 'function';
   len = arguments.length;
   switch (len) {
     // fast cases
@@ -2632,7 +2625,7 @@ CoffeeScript.load = function(url, callback, options, hold) {
     // slower
     default:
       args = new Array(len - 1);
-      for (i = 1; i &#x3c; len; i++)
+      for (i = 1; i &lt; len; i++)
         args[i - 1] = arguments[i];
       emitMany(handler, isFn, this, args);
   }
@@ -2650,7 +2643,7 @@ try {
     input: input,
     options: options
   };
-  CoffeeScript.<span class="apidocCodeKeywordSpan">emit</span>(&#x27;compile&#x27;, task);
+  CoffeeScript.<span class="apidocCodeKeywordSpan">emit</span>('compile', task);
   if (o.tokens) {
     return printTokens(CoffeeScript.tokens(t.input, t.options));
   } else if (o.nodes) {
@@ -2692,7 +2685,7 @@ try {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function eventNames() {
-  return this._eventsCount &#x3e; 0 ? Reflect.ownKeys(this._events) : [];
+  return this._eventsCount &gt; 0 ? Reflect.ownKeys(this._events) : [];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2727,7 +2720,7 @@ try {
   if (events) {
     const evlistener = events[type];
 
-    if (typeof evlistener === &#x27;function&#x27;) {
+    if (typeof evlistener === 'function') {
       return 1;
     } else if (evlistener) {
       return evlistener.length;
@@ -2759,7 +2752,7 @@ try {
     evlistener = events[type];
     if (!evlistener)
       ret = [];
-    else if (typeof evlistener === &#x27;function&#x27;)
+    else if (typeof evlistener === 'function')
       ret = [evlistener];
     else
       ret = arrayClone(evlistener, evlistener.length);
@@ -2774,13 +2767,13 @@ try {
   }
 } catch (error) {
   err = error;
-  CoffeeScript.emit(&#x27;failure&#x27;, err, task);
-  if (CoffeeScript.<span class="apidocCodeKeywordSpan">listeners</span>(&#x27;failure&#x27;).length) {
+  CoffeeScript.emit('failure', err, task);
+  if (CoffeeScript.<span class="apidocCodeKeywordSpan">listeners</span>('failure').length) {
     return;
   }
-  message = (err != null ? err.stack : void 0) || (&#x22;&#x22; + err);
+  message = (err != null ? err.stack : void 0) || ("" + err);
   if (o.watch) {
-    return printLine(message + &#x27;\x07&#x27;);
+    return printLine(message + '\x07');
   } else {
     printWarn(message);
 ...</pre></li>
@@ -2804,7 +2797,7 @@ try {
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -2814,7 +2807,7 @@ try {
   input: input,
   options: options
 };
-CoffeeScript.emit(&#x27;compile&#x27;, task);
+CoffeeScript.emit('compile', task);
 if (o.tokens) {
   return printTokens(CoffeeScript.tokens(t.input, t.options));
 } else if (o.nodes) {
@@ -2822,10 +2815,10 @@ if (o.tokens) {
 } else if (o.run) {
   CoffeeScript.register();
   if (opts.prelude) {
-    CoffeeScript[&#x22;eval&#x22;](opts.prelude, t.options);
+    CoffeeScript["eval"](opts.prelude, t.options);
   }
   return CoffeeScript.run(t.input, t.options);
-} else if (o.join &#x26;&#x26; t.file !== o.join) {
+} else if (o.join &amp;&amp; t.file !== o.join) {
 ...</pre></li>
     </ul>
 
@@ -2849,12 +2842,12 @@ compileStdio = function() {
   var buffers, stdin;
   buffers = [];
   stdin = process.openStdin();
-  stdin.<span class="apidocCodeKeywordSpan">on</span>(&#x27;data&#x27;, function(buffer) {
+  stdin.<span class="apidocCodeKeywordSpan">on</span>('data', function(buffer) {
     if (buffer) {
       return buffers.push(buffer);
     }
   });
-  return stdin.on(&#x27;end&#x27;, function() {
+  return stdin.on('end', function() {
     return compileScript(null, Buffer.concat(buffers).toString());
   });
 ...</pre></li>
@@ -2870,8 +2863,8 @@ compileStdio = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function once(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.on(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -2903,8 +2896,8 @@ compileStdio = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function prependOnceListener(type, listener) {
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
   this.prependListener(type, _onceWrap(this, type, listener));
   return this;
 }</pre></li>
@@ -2921,15 +2914,15 @@ compileStdio = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">register = function () {
-  return require(&#x27;./register&#x27;);
+  return require('./register');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-helpers = require(&#x27;./helpers&#x27;);
+helpers = require('./helpers');
 
-optparse = require(&#x27;./optparse&#x27;);
+optparse = require('./optparse');
 
-CoffeeScript = require(&#x27;./coffee-script&#x27;);
+CoffeeScript = require('./coffee-script');
 
 CoffeeScript.<span class="apidocCodeKeywordSpan">register</span>();
 
@@ -2974,12 +2967,12 @@ switches = [];
   // emit removeListener for all listeners on all events
   if (arguments.length === 0) {
     var keys = Object.keys(events);
-    for (var i = 0, key; i &#x3c; keys.length; ++i) {
+    for (var i = 0, key; i &lt; keys.length; ++i) {
       key = keys[i];
-      if (key === &#x27;removeListener&#x27;) continue;
+      if (key === 'removeListener') continue;
       this.removeAllListeners(key);
     }
-    this.removeAllListeners(&#x27;removeListener&#x27;);
+    this.removeAllListeners('removeListener');
     this._events = new EventHandlers();
     this._eventsCount = 0;
     return this;
@@ -2987,7 +2980,7 @@ switches = [];
 
   listeners = events[type];
 
-  if (typeof listeners === &#x27;function&#x27;) {
+  if (typeof listeners === 'function') {
     this.removeListener(type, listeners);
   } else if (listeners) {
     // LIFO order
@@ -3013,8 +3006,8 @@ switches = [];
     <li>description and source-code<pre class="apidocCodePre">function removeListener(type, listener) {
   var list, events, position, i, originalListener;
 
-  if (typeof listener !== &#x27;function&#x27;)
-    throw new TypeError(&#x27;&#x22;listener&#x22; argument must be a function&#x27;);
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
 
   events = this._events;
   if (!events)
@@ -3030,12 +3023,12 @@ switches = [];
     else {
       delete events[type];
       if (events.removeListener)
-        this.emit(&#x27;removeListener&#x27;, type, list.listener || listener);
+        this.emit('removeListener', type, list.listener || listener);
     }
-  } else if (typeof list !== &#x27;function&#x27;) {
+  } else if (typeof list !== 'function') {
     position = -1;
 
-    for (i = list.length; i-- &#x3e; 0;) {
+    for (i = list.length; i-- &gt; 0;) {
       if (list[i] === listener || list[i].listener === listener) {
         originalListener = list[i].listener;
         position = i;
@@ -3043,7 +3036,7 @@ switches = [];
       }
     }
 
-    if (position &#x3c; 0)
+    if (position &lt; 0)
       return this;
 
     if (list.length === 1) {
@@ -3059,7 +3052,7 @@ switches = [];
     }
 
     if (events.removeListener)
-      this.emit(&#x27;removeListener&#x27;, type, originalListener || listener);
+      this.emit('removeListener', type, originalListener || listener);
   }
 
   return this;
@@ -3109,11 +3102,11 @@ switches = [];
 
 exports.run = function() {
   var arg, args, e, i, len, ref, results;
-  global.__originalDirname = fs.realpathSync(&#x27;.&#x27;);
+  global.__originalDirname = fs.realpathSync('.');
   process.chdir(cakefileDirectory(__originalDirname));
   args = process.argv.slice(2);
-  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync(&#x27;Cakefile&#x27;).toString(), {
-    filename: &#x27;Cakefile&#x27;
+  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync('Cakefile').toString(), {
+    filename: 'Cakefile'
   });
   oparse = new optparse.OptionParser(switches);
   if (!args.length) {
@@ -3133,8 +3126,8 @@ exports.run = function() {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function setMaxListeners(n) {
-  if (typeof n !== &#x27;number&#x27; || n &#x3c; 0 || isNaN(n))
-    throw new TypeError(&#x27;&#x22;n&#x22; argument must be a positive number&#x27;);
+  if (typeof n !== 'number' || n &lt; 0 || isNaN(n))
+    throw new TypeError('"n" argument must be a positive number');
   this._maxListeners = n;
   return this;
 }</pre></li>
@@ -3159,7 +3152,7 @@ exports.run = function() {
     return fn.call(this, code, options);
   } catch (error) {
     err = error;
-    if (typeof code !== &#x27;string&#x27;) {
+    if (typeof code !== 'string') {
       throw err;
     }
     throw helpers.updateSyntaxError(err, code, options.filename);
@@ -3171,7 +3164,7 @@ t = task = {
   input: input,
   options: options
 };
-CoffeeScript.emit(&#x27;compile&#x27;, task);
+CoffeeScript.emit('compile', task);
 if (o.tokens) {
   return printTokens(CoffeeScript.<span class="apidocCodeKeywordSpan">tokens</span>(t.input, t.options));
 } else if (o.nodes) {
@@ -3179,7 +3172,7 @@ if (o.tokens) {
 } else if (o.run) {
   CoffeeScript.register();
   if (opts.prelude) {
-    CoffeeScript[&#x22;eval&#x22;](opts.prelude, t.options);
+    CoffeeScript["eval"](opts.prelude, t.options);
   }
 ...</pre></li>
     </ul>
@@ -3230,31 +3223,31 @@ if (o.tokens) {
     return version();
   }
   if (opts.interactive) {
-    return require(&#x27;./repl&#x27;).start(replCliOpts);
+    return require('./repl').start(replCliOpts);
   }
   if (opts.stdio) {
     return compileStdio();
   }
-  if (opts[&#x22;eval&#x22;]) {
-    return compileScript(null, opts[&#x22;arguments&#x22;][0]);
+  if (opts["eval"]) {
+    return compileScript(null, opts["arguments"][0]);
   }
-  if (!opts[&#x22;arguments&#x22;].length) {
-    return require(&#x27;./repl&#x27;).start(replCliOpts);
+  if (!opts["arguments"].length) {
+    return require('./repl').start(replCliOpts);
   }
-  literals = opts.run ? opts[&#x22;arguments&#x22;].splice(1) : [];
+  literals = opts.run ? opts["arguments"].splice(1) : [];
   process.argv = process.argv.slice(0, 2).concat(literals);
-  process.argv[0] = &#x27;coffee&#x27;;
+  process.argv[0] = 'coffee';
   if (opts.output) {
     opts.output = path.resolve(opts.output);
   }
   if (opts.join) {
     opts.join = path.resolve(opts.join);
-    console.error(&#x27;\nThe --join option is deprecated and will be removed in a future version.\n\nIf for some reason it\&#x27;s necessary
- to share local variables between files,\nreplace...\n\n    $ coffee --compile --join bundle.js -- a.coffee b.coffee c.coffee\n\nwith...\n\n    $ cat a.coffee b.coffee c.coffee | coffee --compile --stdio &#x3e; bundle.js\n&#x27;);
+    console.error('\nThe --join option is deprecated and will be removed in a future version.\n\nIf for some reason it\'s necessary
+ to share local variables between files,\nreplace...\n\n    $ coffee --compile --join bundle.js -- a.coffee b.coffee c.coffee\n\nwith...\n\n    $ cat a.coffee b.coffee c.coffee | coffee --compile --stdio &gt; bundle.js\n');
   }
-  ref1 = opts[&#x22;arguments&#x22;];
+  ref1 = opts["arguments"];
   results = [];
-  for (i = 0, len = ref1.length; i &#x3c; len; i++) {
+  for (i = 0, len = ref1.length; i &lt; len; i++) {
     source = ref1[i];
     source = path.resolve(source);
     results.push(compilePath(source, true, source));
@@ -3266,11 +3259,11 @@ if (o.tokens) {
 
 exports.run = function() {
   var arg, args, e, i, len, ref, results;
-  global.__originalDirname = fs.realpathSync(&#x27;.&#x27;);
+  global.__originalDirname = fs.realpathSync('.');
   process.chdir(cakefileDirectory(__originalDirname));
   args = process.argv.slice(2);
-  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync(&#x27;Cakefile&#x27;).toString(), {
-    filename: &#x27;Cakefile&#x27;
+  CoffeeScript.<span class="apidocCodeKeywordSpan">run</span>(fs.readFileSync('Cakefile').toString(), {
+    filename: 'Cakefile'
   });
   oparse = new optparse.OptionParser(switches);
   if (!args.length) {
@@ -3296,28 +3289,28 @@ exports.run = function() {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addLocationDataFn = function (first, last) {
   return function(obj) {
-    if (((typeof obj) === &#x27;object&#x27;) &#x26;&#x26; (!!obj[&#x27;updateLocationDataIfMissing&#x27;])) {
+    if (((typeof obj) === 'object') &amp;&amp; (!!obj['updateLocationDataIfMissing'])) {
       obj.updateLocationDataIfMissing(buildLocationData(first, last));
     }
     return obj;
   };
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  return [patternString, &#x27;$$ = $1;&#x27;, options];
+  return [patternString, '$$ = $1;', options];
 }
-action = (match = unwrap.exec(action)) ? match[1] : &#x22;(&#x22; + action + &#x22;())&#x22;;
-action = action.replace(/\bnew /g, &#x27;$&#x26;yy.&#x27;);
-action = action.replace(/\b(?:Block\.wrap|extend)\b/g, &#x27;yy.$&#x26;&#x27;);
+action = (match = unwrap.exec(action)) ? match[1] : "(" + action + "())";
+action = action.replace(/\bnew /g, '$&amp;yy.');
+action = action.replace(/\b(?:Block\.wrap|extend)\b/g, 'yy.$&amp;');
 addLocationDataFn = function(first, last) {
   if (!last) {
-    return &#x22;yy.<span class="apidocCodeKeywordSpan">addLocationDataFn</span>(@&#x22; + first + &#x22;)&#x22;;
+    return "yy.<span class="apidocCodeKeywordSpan">addLocationDataFn</span>(@" + first + ")";
   } else {
-    return &#x22;yy.addLocationDataFn(@&#x22; + first + &#x22;, @&#x22; + last + &#x22;)&#x22;;
+    return "yy.addLocationDataFn(@" + first + ", @" + last + ")";
   }
 };
-action = action.replace(/LOC\(([0-9]*)\)/g, addLocationDataFn(&#x27;$1&#x27;));
-action = action.replace(/LOC\(([0-9]*),\s*([0-9]*)\)/g, addLocationDataFn(&#x27;$1&#x27;, &#x27;$2&#x27;));
-return [patternString, &#x22;$$ = &#x22; + (addLocationDataFn(1, patternCount)) + &#x22;(&#x22; + action + &#x22;);&#x22;, options
+action = action.replace(/LOC\(([0-9]*)\)/g, addLocationDataFn('$1'));
+action = action.replace(/LOC\(([0-9]*),\s*([0-9]*)\)/g, addLocationDataFn('$1', '$2'));
+return [patternString, "$$ = " + (addLocationDataFn(1, patternCount)) + "(" + action + ");", options
 ];
 ...</pre></li>
     </ul>
@@ -3342,15 +3335,15 @@ return [patternString, &#x22;$$ = &#x22; + (addLocationDataFn(1, patternCount)) 
   pathSep = useWinPathSep ? /\\|\// : /\//;
   parts = file.split(pathSep);
   file = parts[parts.length - 1];
-  if (!(stripExt &#x26;&#x26; file.indexOf(&#x27;.&#x27;) &#x3e;= 0)) {
+  if (!(stripExt &amp;&amp; file.indexOf('.') &gt;= 0)) {
     return file;
   }
-  parts = file.split(&#x27;.&#x27;);
+  parts = file.split('.');
   parts.pop();
-  if (parts[parts.length - 1] === &#x27;coffee&#x27; &#x26;&#x26; parts.length &#x3e; 1) {
+  if (parts[parts.length - 1] === 'coffee' &amp;&amp; parts.length &gt; 1) {
     parts.pop();
   }
-  return parts.join(&#x27;.&#x27;);
+  return parts.join('.');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -3361,13 +3354,13 @@ makePrelude = function(requires) {
       _ = match[0], name = match[1], module = match[2];
     }
     name || (name = helpers.<span class="apidocCodeKeywordSpan">baseFileName</span>(module, true, useWinPathSep));
-    return name + &#x22; = require(&#x27;&#x22; + module + &#x22;&#x27;)&#x22;;
-  }).join(&#x27;;&#x27;);
+    return name + " = require('" + module + "')";
+  }).join(';');
 };
 
 compilePath = function(source, topLevel, base) {
   var code, err, file, files, i, len, results, stats;
-  if (indexOf.call(sources, source) &#x3e;= 0 || watchedDirs[source] || !topLevel &#x26;&#x26; (notSources[source] || hidden(source
+  if (indexOf.call(sources, source) &gt;= 0 || watchedDirs[source] || !topLevel &amp;&amp; (notSources[source] || hidden(source
 ))) {
 ...</pre></li>
     </ul>
@@ -3384,7 +3377,7 @@ compilePath = function(source, topLevel, base) {
     <li>description and source-code<pre class="apidocCodePre">compact = function (array) {
   var i, item, len1, results;
   results = [];
-  for (i = 0, len1 = array.length; i &#x3c; len1; i++) {
+  for (i = 0, len1 = array.length; i &lt; len1; i++) {
     item = array[i];
     if (item) {
       results.push(item);
@@ -3418,15 +3411,15 @@ compilePath = function(source, topLevel, base) {
     <li>example usage<pre class="apidocCodePre">...
 fragment = fragments[j];
 if (generateSourceMap) {
-  if (fragment.locationData &#x26;&#x26; !/^[;\s]*$/.test(fragment.code)) {
+  if (fragment.locationData &amp;&amp; !/^[;\s]*$/.test(fragment.code)) {
     map.add([fragment.locationData.first_line, fragment.locationData.first_column], [currentLine, currentColumn], {
       noReplace: true
     });
   }
-  newLines = helpers.<span class="apidocCodeKeywordSpan">count</span>(fragment.code, &#x22;\n&#x22;);
+  newLines = helpers.<span class="apidocCodeKeywordSpan">count</span>(fragment.code, "\n");
   currentLine += newLines;
   if (newLines) {
-    currentColumn = fragment.code.length - (fragment.code.lastIndexOf(&#x22;\n&#x22;) + 1);
+    currentColumn = fragment.code.length - (fragment.code.lastIndexOf("\n") + 1);
   } else {
     currentColumn += fragment.code.length;
   }
@@ -3517,9 +3510,9 @@ helpers.<span class="apidocCodeKeywordSpan">extend</span>(global, {
     <li>description and source-code<pre class="apidocCodePre">flatten = function (array) {
   var element, flattened, i, len1;
   flattened = [];
-  for (i = 0, len1 = array.length; i &#x3c; len1; i++) {
+  for (i = 0, len1 = array.length; i &lt; len1; i++) {
     element = array[i];
-    if (&#x27;[object Array]&#x27; === Object.prototype.toString.call(element)) {
+    if ('[object Array]' === Object.prototype.toString.call(element)) {
       flattened = flattened.concat(flatten(element));
     } else {
       flattened.push(element);
@@ -3544,29 +3537,29 @@ helpers.<span class="apidocCodeKeywordSpan">extend</span>(global, {
   maybe_code = true;
   lines = (function() {
     var i, len1, ref1, results;
-    ref1 = code.split(&#x27;\n&#x27;);
+    ref1 = code.split('\n');
     results = [];
-    for (i = 0, len1 = ref1.length; i &#x3c; len1; i++) {
+    for (i = 0, len1 = ref1.length; i &lt; len1; i++) {
       line = ref1[i];
-      if (maybe_code &#x26;&#x26; /^([ ]{4}|[ ]{0,3}\t)/.test(line)) {
+      if (maybe_code &amp;&amp; /^([ ]{4}|[ ]{0,3}\t)/.test(line)) {
         results.push(line);
       } else if (maybe_code = /^\s*$/.test(line)) {
         results.push(line);
       } else {
-        results.push(&#x27;# &#x27; + line);
+        results.push('# ' + line);
       }
     }
     return results;
   })();
-  return lines.join(&#x27;\n&#x27;);
+  return lines.join('\n');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   CoffeeScript.register();
   if (opts.prelude) {
-    CoffeeScript[&#x22;eval&#x22;](opts.prelude, t.options);
+    CoffeeScript["eval"](opts.prelude, t.options);
   }
   return CoffeeScript.run(t.input, t.options);
-} else if (o.join &#x26;&#x26; t.file !== o.join) {
+} else if (o.join &amp;&amp; t.file !== o.join) {
   if (helpers.isLiterate(file)) {
     t.input = helpers.<span class="apidocCodeKeywordSpan">invertLiterate</span>(t.input);
   }
@@ -3595,11 +3588,11 @@ helpers.<span class="apidocCodeKeywordSpan">extend</span>(global, {
     options = {};
   }
   mainModule = require.main;
-  mainModule.filename = process.argv[1] = options.filename ? fs.realpathSync(options.filename) : &#x27;&#x3c;anonymous&#x3e;&#x27
+  mainModule.filename = process.argv[1] = options.filename ? fs.realpathSync(options.filename) : '&lt;anonymous&gt;'
 ;;
-  mainModule.moduleCache &#x26;&#x26; (mainModule.moduleCache = {});
-  dir = options.filename != null ? path.dirname(fs.realpathSync(options.filename)) : fs.realpathSync(&#x27;.&#x27;);
-  mainModule.paths = require(&#x27;module&#x27;)._nodeModulePaths(dir);
+  mainModule.moduleCache &amp;&amp; (mainModule.moduleCache = {});
+  dir = options.filename != null ? path.dirname(fs.realpathSync(options.filename)) : fs.realpathSync('.');
+  mainModule.paths = require('module')._nodeModulePaths(dir);
   if (!helpers.<span class="apidocCodeKeywordSpan">isCoffee</span>(mainModule.filename) || require.extensions) {
     answer = compile(code, options);
     code = (ref = answer.js) != null ? ref : answer;
@@ -3607,7 +3600,7 @@ helpers.<span class="apidocCodeKeywordSpan">extend</span>(global, {
   return mainModule._compile(code, mainModule.filename);
 };
 
-exports[&#x22;eval&#x22;] = function(code, options) {
+exports["eval"] = function(code, options) {
 ...</pre></li>
     </ul>
 
@@ -3653,16 +3646,16 @@ exports[&#x22;eval&#x22;] = function(code, options) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">locationDataToString = function (obj) {
   var locationData;
-  if ((&#x22;2&#x22; in obj) &#x26;&#x26; (&#x22;first_line&#x22; in obj[2])) {
+  if (("2" in obj) &amp;&amp; ("first_line" in obj[2])) {
     locationData = obj[2];
-  } else if (&#x22;first_line&#x22; in obj) {
+  } else if ("first_line" in obj) {
     locationData = obj;
   }
   if (locationData) {
-    return ((locationData.first_line + 1) + &#x22;:&#x22; + (locationData.first_column + 1) + &#x22;-&#x22;) + ((locationData.last_line + 1) + &#x22;:&#x22; + (
+    return ((locationData.first_line + 1) + ":" + (locationData.first_column + 1) + "-") + ((locationData.last_line + 1) + ":" + (
 locationData.last_column + 1));
   } else {
-    return &#x22;No location data&#x22;;
+    return "No location data";
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -3681,7 +3674,7 @@ locationData.last_column + 1));
   return extend(extend({}, options), overrides);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  inlineMap: opts[&#x27;inline-map&#x27;]
+  inlineMap: opts['inline-map']
 };
 if (filename) {
   if (base) {
@@ -3710,32 +3703,32 @@ if (filename) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">nameWhitespaceCharacter = function (string) {
   switch (string) {
-    case &#x27; &#x27;:
-      return &#x27;space&#x27;;
-    case &#x27;\n&#x27;:
-      return &#x27;newline&#x27;;
-    case &#x27;\r&#x27;:
-      return &#x27;carriage return&#x27;;
-    case &#x27;\t&#x27;:
-      return &#x27;tab&#x27;;
+    case ' ':
+      return 'space';
+    case '\n':
+      return 'newline';
+    case '\r':
+      return 'carriage return';
+    case '\t':
+      return 'tab';
     default:
       return string;
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
       case errorToken !== tokens[tokens.length - 1]:
-        return &#x27;end of input&#x27;;
-      case errorTag !== &#x27;INDENT&#x27; &#x26;&#x26; errorTag !== &#x27;OUTDENT&#x27;:
-        return &#x27;indentation&#x27;;
-      case errorTag !== &#x27;IDENTIFIER&#x27; &#x26;&#x26; errorTag !== &#x27;NUMBER&#x27; &#x26;&#x26; errorTag !== &#x27;INFINITY
-&#x27; &#x26;&#x26; errorTag !== &#x27;STRING&#x27; &#x26;&#x26; errorTag !== &#x27;STRING_START&#x27; &#x26;&#x26; errorTag !== &#
-x27;REGEX&#x27; &#x26;&#x26; errorTag !== &#x27;REGEX_START&#x27;:
-        return errorTag.replace(/_START$/, &#x27;&#x27;).toLowerCase();
+        return 'end of input';
+      case errorTag !== 'INDENT' &amp;&amp; errorTag !== 'OUTDENT':
+        return 'indentation';
+      case errorTag !== 'IDENTIFIER' &amp;&amp; errorTag !== 'NUMBER' &amp;&amp; errorTag !== 'INFINITY
+' &amp;&amp; errorTag !== 'STRING' &amp;&amp; errorTag !== 'STRING_START' &amp;&amp; errorTag !== &amp;#
+x27;REGEX' &amp;&amp; errorTag !== 'REGEX_START':
+        return errorTag.replace(/_START$/, '').toLowerCase();
       default:
         return helpers.<span class="apidocCodeKeywordSpan">nameWhitespaceCharacter</span>(errorText);
     }
   })();
-  return helpers.throwSyntaxError(&#x22;unexpected &#x22; + errorText, errorLoc);
+  return helpers.throwSyntaxError("unexpected " + errorText, errorLoc);
 };
 
 formatSourcePosition = function(frame, getSourceMapping) {
@@ -3754,12 +3747,12 @@ formatSourcePosition = function(frame, getSourceMapping) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">repeat = function (str, n) {
   var res;
-  res = &#x27;&#x27;;
-  while (n &#x3e; 0) {
-    if (n &#x26; 1) {
+  res = '';
+  while (n &gt; 0) {
+    if (n &amp; 1) {
       res += str;
     }
-    n &#x3e;&#x3e;&#x3e;= 1;
+    n &gt;&gt;&gt;= 1;
     str += str;
   }
   return res;
@@ -3790,7 +3783,7 @@ compileJoin = function() {
   })) {
     clearTimeout(joinTimeout);
     return joinTimeout = wait(100, function() {
-      return compileScript(opts.join, sourceCode.join(&#x27;\n&#x27;), opts.join);
+      return compileScript(opts.join, sourceCode.join('\n'), opts.join);
     });
   }
 ...</pre></li>
@@ -3829,22 +3822,22 @@ compileJoin = function() {
   throw error;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-        return &#x27;indentation&#x27;;
-      case errorTag !== &#x27;IDENTIFIER&#x27; &#x26;&#x26; errorTag !== &#x27;NUMBER&#x27; &#x26;&#x26; errorTag !== &#x27;INFINITY
-&#x27; &#x26;&#x26; errorTag !== &#x27;STRING&#x27; &#x26;&#x26; errorTag !== &#x27;STRING_START&#x27; &#x26;&#x26; errorTag !== &#
-x27;REGEX&#x27; &#x26;&#x26; errorTag !== &#x27;REGEX_START&#x27;:
-        return errorTag.replace(/_START$/, &#x27;&#x27;).toLowerCase();
+        return 'indentation';
+      case errorTag !== 'IDENTIFIER' &amp;&amp; errorTag !== 'NUMBER' &amp;&amp; errorTag !== 'INFINITY
+' &amp;&amp; errorTag !== 'STRING' &amp;&amp; errorTag !== 'STRING_START' &amp;&amp; errorTag !== &amp;#
+x27;REGEX' &amp;&amp; errorTag !== 'REGEX_START':
+        return errorTag.replace(/_START$/, '').toLowerCase();
       default:
         return helpers.nameWhitespaceCharacter(errorText);
     }
   })();
-  return helpers.<span class="apidocCodeKeywordSpan">throwSyntaxError</span>(&#x22;unexpected &#x22; + errorText, errorLoc);
+  return helpers.<span class="apidocCodeKeywordSpan">throwSyntaxError</span>("unexpected " + errorText, errorLoc);
 };
 
 formatSourcePosition = function(frame, getSourceMapping) {
   var as, column, fileLocation, filename, functionName, isConstructor, isMethodCall, line, methodName, source, tp, typeName;
   filename = void 0;
-  fileLocation = &#x27;&#x27;;
+  fileLocation = '';
   if (frame.isNative()) {
 ...</pre></li>
     </ul>
@@ -3871,7 +3864,7 @@ formatSourcePosition = function(frame, getSourceMapping) {
       return fn.call(this, code, options);
     } catch (error) {
       err = error;
-      if (typeof code !== &#x27;string&#x27;) {
+      if (typeof code !== 'string') {
         throw err;
       }
       throw helpers.<span class="apidocCodeKeywordSpan">updateSyntaxError</span>(err, code, options.filename);
@@ -3917,12 +3910,12 @@ sourceMaps = {};
     displayName = name;
   }
   switch (false) {
-    case indexOf.call(slice.call(JS_KEYWORDS).concat(slice.call(COFFEE_KEYWORDS)), name) &#x3c; 0:
-      return &#x22;keyword &#x27;&#x22; + displayName + &#x22;&#x27; can&#x27;t be assigned&#x22;;
-    case indexOf.call(STRICT_PROSCRIBED, name) &#x3c; 0:
-      return &#x22;&#x27;&#x22; + displayName + &#x22;&#x27; can&#x27;t be assigned&#x22;;
-    case indexOf.call(RESERVED, name) &#x3c; 0:
-      return &#x22;reserved word &#x27;&#x22; + displayName + &#x22;&#x27; can&#x27;t be assigned&#x22;;
+    case indexOf.call(slice.call(JS_KEYWORDS).concat(slice.call(COFFEE_KEYWORDS)), name) &lt; 0:
+      return "keyword '" + displayName + "' can't be assigned";
+    case indexOf.call(STRICT_PROSCRIBED, name) &lt; 0:
+      return "'" + displayName + "' can't be assigned";
+    case indexOf.call(RESERVED, name) &lt; 0:
+      return "reserved word '" + displayName + "' can't be assigned";
     default:
       return false;
   }
@@ -3948,7 +3941,7 @@ sourceMaps = {};
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Access(name1, tag) {
   this.name = name1;
-  this.soak = tag === &#x27;soak&#x27;;
+  this.soak = tag === 'soak';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 case 88:
@@ -3961,11 +3954,11 @@ case 99:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.<span class="apidocCodeKeywordSpan">Access</span>($$[$0]));
 break;
 case 100:
-this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Access($$[$0], &#x27;soak&#x27;));
+this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Access($$[$0], 'soak'));
 break;
 case 101:
-this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])([yy.addLocationDataFn(_$[$0-1])(new yy.Access(new yy.PropertyName(&#x27;prototype
-&#x27;))), yy.addLocationDataFn(_$[$0])(new yy.Access($$[$0]))]);
+this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])([yy.addLocationDataFn(_$[$0-1])(new yy.Access(new yy.PropertyName('prototype
+'))), yy.addLocationDataFn(_$[$0])(new yy.Access($$[$0]))]);
 break;
 ...</pre></li>
     </ul>
@@ -3988,7 +3981,7 @@ this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.Value(new yy.ThisLiteral));
 break;
 case 172:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Value(yy.addLocationDataFn(_$[$0-1])(new yy.ThisLiteral), [yy.addLocationDataFn
-(_$[$0])(new yy.Access($$[$0]))], &#x27;this&#x27;));
+(_$[$0])(new yy.Access($$[$0]))], 'this'));
 break;
 case 173:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.<span class="apidocCodeKeywordSpan">Arr</span>([]));
@@ -3997,7 +3990,7 @@ case 174:
 this.$ = yy.addLocationDataFn(_$[$0-3], _$[$0])(new yy.Arr($$[$0-2]));
 break;
 case 175:
-this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(&#x27;inclusive&#x27;);
+this.$ = yy.addLocationDataFn(_$[$0], _$[$0])('inclusive');
 break;
 ...</pre></li>
     </ul>
@@ -4113,8 +4106,8 @@ break;
   this.args = args1 != null ? args1 : [];
   this.soak = soak1;
   this.isNew = false;
-  if (this.variable instanceof Value &#x26;&#x26; this.variable.isNotCallable()) {
-    this.variable.error(&#x22;literal is not a function&#x22;);
+  if (this.variable instanceof Value &amp;&amp; this.variable.isNotCallable()) {
+    this.variable.error("literal is not a function");
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -4184,9 +4177,9 @@ break;
     <li>description and source-code<pre class="apidocCodePre">function Code(params, body, tag) {
   this.params = params || [];
   this.body = body || new Block;
-  this.bound = tag === &#x27;boundfunc&#x27;;
+  this.bound = tag === 'boundfunc';
   this.isGenerator = !!this.body.contains(function(node) {
-    return (node instanceof Op &#x26;&#x26; node.isYield()) || node instanceof YieldReturn;
+    return (node instanceof Op &amp;&amp; node.isYield()) || node instanceof YieldReturn;
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -4204,7 +4197,7 @@ case 68:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Code([], $$[$0], $$[$0-1]));
 break;
 case 69:
-this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(&#x27;func&#x27;);
+this.$ = yy.addLocationDataFn(_$[$0], _$[$0])('func');
 break;
 ...</pre></li>
     </ul>
@@ -4220,9 +4213,9 @@ break;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function CodeFragment(parent, code) {
   var ref3;
-  this.code = &#x22;&#x22; + code;
+  this.code = "" + code;
   this.locationData = parent != null ? parent.locationData : void 0;
-  this.type = (parent != null ? (ref3 = parent.constructor) != null ? ref3.name : void 0 : void 0) || &#x27;unknown&#x27;;
+  this.type = (parent != null ? (ref3 = parent.constructor) != null ? ref3.name : void 0 : void 0) || 'unknown';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -4272,19 +4265,19 @@ break;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 case 255:
-this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op(&#x27;--&#x27;, $$[$0-1], null, true));
+this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op('--', $$[$0-1], null, true));
 break;
 case 256:
-this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op(&#x27;++&#x27;, $$[$0-1], null, true));
+this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op('++', $$[$0-1], null, true));
 break;
 case 257:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.<span class="apidocCodeKeywordSpan">Existence</span>($$[$0-1]));
 break;
 case 258:
-this.$ = yy.addLocationDataFn(_$[$0-2], _$[$0])(new yy.Op(&#x27;+&#x27;, $$[$0-2], $$[$0]));
+this.$ = yy.addLocationDataFn(_$[$0-2], _$[$0])(new yy.Op('+', $$[$0-2], $$[$0]));
 break;
 case 259:
-this.$ = yy.addLocationDataFn(_$[$0-2], _$[$0])(new yy.Op(&#x27;-&#x27;, $$[$0-2], $$[$0]));
+this.$ = yy.addLocationDataFn(_$[$0-2], _$[$0])(new yy.Op('-', $$[$0-2], $$[$0]));
 break;
 ...</pre></li>
     </ul>
@@ -4317,7 +4310,7 @@ break;
   return ExportAllDeclaration.__super__.constructor.apply(this, arguments);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-          moduleDeclaration: &#x27;export&#x27;
+          moduleDeclaration: 'export'
         })));
 break;
 case 147:
@@ -4367,7 +4360,7 @@ break;
 break;
 case 146:
 this.$ = yy.addLocationDataFn(_$[$0-5], _$[$0])(new yy.ExportNamedDeclaration(new yy.Assign($$[$0-4], $$[$0-1], null, {
-          moduleDeclaration: &#x27;export&#x27;
+          moduleDeclaration: 'export'
         })));
 break;
 case 147:
@@ -4425,7 +4418,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function ExportSpecifier(local, exported) {
-  ExportSpecifier.__super__.constructor.call(this, local, exported, &#x27;export&#x27;);
+  ExportSpecifier.__super__.constructor.call(this, local, exported, 'export');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 case 148:
@@ -5044,36 +5037,36 @@ index;
   this.own = !!source.own;
   this.object = !!source.object;
   this.from = !!source.from;
-  if (this.from &#x26;&#x26; this.index) {
-    this.index.error(&#x27;cannot use index with for-from&#x27;);
+  if (this.from &amp;&amp; this.index) {
+    this.index.error('cannot use index with for-from');
   }
-  if (this.own &#x26;&#x26; !this.object) {
-    source.ownTag.error(&#x22;cannot use own with for-&#x22; + (this.from ? &#x27;from&#x27; : &#x27;in&#x27;));
+  if (this.own &amp;&amp; !this.object) {
+    source.ownTag.error("cannot use own with for-" + (this.from ? 'from' : 'in'));
   }
   if (this.object) {
     ref3 = [this.index, this.name], this.name = ref3[0], this.index = ref3[1];
   }
-  if (this.index instanceof Value &#x26;&#x26; !this.index.isAssignable()) {
-    this.index.error(&#x27;index cannot be a pattern matching expression&#x27;);
+  if (this.index instanceof Value &amp;&amp; !this.index.isAssignable()) {
+    this.index.error('index cannot be a pattern matching expression');
   }
-  this.range = this.source instanceof Value &#x26;&#x26; this.source.base instanceof Range &#x26;&#x26; !this.source.properties.length &#x26;&#x26; !this.from
+  this.range = this.source instanceof Value &amp;&amp; this.source.base instanceof Range &amp;&amp; !this.source.properties.length &amp;&amp; !this.from
 ;
   this.pattern = this.name instanceof Value;
-  if (this.range &#x26;&#x26; this.index) {
-    this.index.error(&#x27;indexes do not apply to range loops&#x27;);
+  if (this.range &amp;&amp; this.index) {
+    this.index.error('indexes do not apply to range loops');
   }
-  if (this.range &#x26;&#x26; this.pattern) {
-    this.name.error(&#x27;cannot pattern match over range loops&#x27;);
+  if (this.range &amp;&amp; this.pattern) {
+    this.name.error('cannot pattern match over range loops');
   }
   this.returns = false;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 case 210:
-this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.While(yy.addLocationDataFn(_$[$0-1])(new yy.BooleanLiteral(&#x27;true&#x27
+this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.While(yy.addLocationDataFn(_$[$0-1])(new yy.BooleanLiteral('true'
 ;))).addBody($$[$0]));
 break;
 case 211:
-this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.While(yy.addLocationDataFn(_$[$0-1])(new yy.BooleanLiteral(&#x27;true&#x27
+this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.While(yy.addLocationDataFn(_$[$0-1])(new yy.BooleanLiteral('true'
 ;))).addBody(yy.addLocationDataFn(_$[$0])(yy.Block.wrap([$$[$0]]))));
 break;
 case 212: case 213:
@@ -5133,7 +5126,7 @@ break;
   if (options == null) {
     options = {};
   }
-  this.condition = options.type === &#x27;unless&#x27; ? condition.invert() : condition;
+  this.condition = options.type === 'unless' ? condition.invert() : condition;
   this.elseBody = null;
   this.isChain = false;
   this.soak = options.soak;
@@ -5296,7 +5289,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function ImportSpecifier(imported, local) {
-  ImportSpecifier.__super__.constructor.call(this, imported, local, &#x27;import&#x27;);
+  ImportSpecifier.__super__.constructor.call(this, imported, local, 'import');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 case 129:
@@ -5452,8 +5445,8 @@ case 11:
 this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.StatementLiteral($$[$0]));
 break;
 case 27:
-this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.Op($$[$0], new yy.Value(new yy.<span class="apidocCodeKeywordSpan">Literal</
-span>(&#x27;&#x27;))));
+this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.Op($$[$0], new yy.Value(new yy.<span class="apidocCodeKeywordSpan">Literal<!--
+span-->(''))));
 break;
 case 28: case 249: case 250:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op($$[$0-1], $$[$0]));
@@ -5461,7 +5454,7 @@ break;
 case 29:
 this.$ = yy.addLocationDataFn(_$[$0-2], _$[$0])(new yy.Op($$[$0-2].concat($$[$0-1]), $$[$0]));
 break;
-...</pre></li>
+...</span></pre></li>
     </ul>
 
 
@@ -5524,7 +5517,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function NaNLiteral() {
-  NaNLiteral.__super__.constructor.call(this, &#x27;NaN&#x27;);
+  NaNLiteral.__super__.constructor.call(this, 'NaN');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5539,7 +5532,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function NullLiteral() {
-  NullLiteral.__super__.constructor.call(this, &#x27;null&#x27;);
+  NullLiteral.__super__.constructor.call(this, 'null');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -5618,17 +5611,17 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Op(op, first, second, flip) {
-  if (op === &#x27;in&#x27;) {
+  if (op === 'in') {
     return new In(first, second);
   }
-  if (op === &#x27;do&#x27;) {
+  if (op === 'do') {
     return this.generateDo(first);
   }
-  if (op === &#x27;new&#x27;) {
-    if (first instanceof Call &#x26;&#x26; !first[&#x22;do&#x22;] &#x26;&#x26; !first.isNew) {
+  if (op === 'new') {
+    if (first instanceof Call &amp;&amp; !first["do"] &amp;&amp; !first.isNew) {
       return first.newInstance();
     }
-    if (first instanceof Code &#x26;&#x26; first.bound || first[&#x22;do&#x22;]) {
+    if (first instanceof Code &amp;&amp; first.bound || first["do"]) {
       first = new Parens(first);
     }
   }
@@ -5650,7 +5643,7 @@ this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.StatementLiteral($$[$0]));
 break;
 case 27:
 this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.<span class="apidocCodeKeywordSpan">Op</span>($$[$0], new yy.Value(new yy.Literal
-(&#x27;&#x27;))));
+(''))));
 break;
 case 28: case 249: case 250:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op($$[$0-1], $$[$0]));
@@ -5679,9 +5672,9 @@ break;
   if (message) {
     this.name.error(message);
   }
-  if (this.name instanceof Obj &#x26;&#x26; this.name.generated) {
+  if (this.name instanceof Obj &amp;&amp; this.name.generated) {
     token = this.name.objects[0].operatorToken;
-    token.error(&#x22;unexpected &#x22; + token.value);
+    token.error("unexpected " + token.value);
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -5808,15 +5801,15 @@ break;
     <li>description and source-code<pre class="apidocCodePre">function Range(from1, to1, tag) {
   this.from = from1;
   this.to = to1;
-  this.exclusive = tag === &#x27;exclusive&#x27;;
-  this.equals = this.exclusive ? &#x27;&#x27; : &#x27;=&#x27;;
+  this.exclusive = tag === 'exclusive';
+  this.equals = this.exclusive ? '' : '=';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 case 175:
-this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(&#x27;inclusive&#x27;);
+this.$ = yy.addLocationDataFn(_$[$0], _$[$0])('inclusive');
 break;
 case 176:
-this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(&#x27;exclusive&#x27;);
+this.$ = yy.addLocationDataFn(_$[$0], _$[$0])('exclusive');
 break;
 case 177:
 this.$ = yy.addLocationDataFn(_$[$0-4], _$[$0])(new yy.<span class="apidocCodeKeywordSpan">Range</span>($$[$0-3], $$[$0-1], $$[$
@@ -5875,7 +5868,7 @@ break;
   if (args == null) {
     args = [];
   }
-  RegexWithInterpolations.__super__.constructor.call(this, new Value(new IdentifierLiteral(&#x27;RegExp&#x27;)), args, false);
+  RegexWithInterpolations.__super__.constructor.call(this, new Value(new IdentifierLiteral('RegExp')), args, false);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 case 37:
@@ -6018,7 +6011,7 @@ case 11:
 this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.<span class="apidocCodeKeywordSpan">StatementLiteral</span>($$[$0]));
 break;
 case 27:
-this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.Op($$[$0], new yy.Value(new yy.Literal(&#x27;&#x27;))));
+this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.Op($$[$0], new yy.Value(new yy.Literal(''))));
 break;
 case 28: case 249: case 250:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op($$[$0-1], $$[$0]));
@@ -6099,7 +6092,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function SuperCall(args) {
-  SuperCall.__super__.constructor.call(this, null, args != null ? args : [new Splat(new IdentifierLiteral(&#x27;arguments&#x27;))]);
+  SuperCall.__super__.constructor.call(this, null, args != null ? args : [new Splat(new IdentifierLiteral('arguments'))]);
   this.isBare = args != null;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -6199,7 +6192,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function ThisLiteral() {
-  ThisLiteral.__super__.constructor.call(this, &#x27;this&#x27;);
+  ThisLiteral.__super__.constructor.call(this, 'this');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6279,7 +6272,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function UndefinedLiteral() {
-  UndefinedLiteral.__super__.constructor.call(this, &#x27;undefined&#x27;);
+  UndefinedLiteral.__super__.constructor.call(this, 'undefined');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -6294,7 +6287,7 @@ break;
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Value(base, props, tag) {
-  if (!props &#x26;&#x26; base instanceof Value) {
+  if (!props &amp;&amp; base instanceof Value) {
     return base;
   }
   this.base = base;
@@ -6316,7 +6309,7 @@ this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.StatementLiteral($$[$0]));
 break;
 case 27:
 this.$ = yy.addLocationDataFn(_$[$0], _$[$0])(new yy.Op($$[$0], new yy.<span class="apidocCodeKeywordSpan">Value</span>(new yy.Literal
-(&#x27;&#x27;))));
+(''))));
 break;
 case 28: case 249: case 250:
 this.$ = yy.addLocationDataFn(_$[$0-1], _$[$0])(new yy.Op($$[$0-1], $$[$0]));
@@ -6401,28 +6394,28 @@ break;
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addLocationDataFn = function (first, last) {
   return function(obj) {
-    if (((typeof obj) === &#x27;object&#x27;) &#x26;&#x26; (!!obj[&#x27;updateLocationDataIfMissing&#x27;])) {
+    if (((typeof obj) === 'object') &amp;&amp; (!!obj['updateLocationDataIfMissing'])) {
       obj.updateLocationDataIfMissing(buildLocationData(first, last));
     }
     return obj;
   };
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  return [patternString, &#x27;$$ = $1;&#x27;, options];
+  return [patternString, '$$ = $1;', options];
 }
-action = (match = unwrap.exec(action)) ? match[1] : &#x22;(&#x22; + action + &#x22;())&#x22;;
-action = action.replace(/\bnew /g, &#x27;$&#x26;yy.&#x27;);
-action = action.replace(/\b(?:Block\.wrap|extend)\b/g, &#x27;yy.$&#x26;&#x27;);
+action = (match = unwrap.exec(action)) ? match[1] : "(" + action + "())";
+action = action.replace(/\bnew /g, '$&amp;yy.');
+action = action.replace(/\b(?:Block\.wrap|extend)\b/g, 'yy.$&amp;');
 addLocationDataFn = function(first, last) {
   if (!last) {
-    return &#x22;yy.<span class="apidocCodeKeywordSpan">addLocationDataFn</span>(@&#x22; + first + &#x22;)&#x22;;
+    return "yy.<span class="apidocCodeKeywordSpan">addLocationDataFn</span>(@" + first + ")";
   } else {
-    return &#x22;yy.addLocationDataFn(@&#x22; + first + &#x22;, @&#x22; + last + &#x22;)&#x22;;
+    return "yy.addLocationDataFn(@" + first + ", @" + last + ")";
   }
 };
-action = action.replace(/LOC\(([0-9]*)\)/g, addLocationDataFn(&#x27;$1&#x27;));
-action = action.replace(/LOC\(([0-9]*),\s*([0-9]*)\)/g, addLocationDataFn(&#x27;$1&#x27;, &#x27;$2&#x27;));
-return [patternString, &#x22;$$ = &#x22; + (addLocationDataFn(1, patternCount)) + &#x22;(&#x22; + action + &#x22;);&#x22;, options
+action = action.replace(/LOC\(([0-9]*)\)/g, addLocationDataFn('$1'));
+action = action.replace(/LOC\(([0-9]*),\s*([0-9]*)\)/g, addLocationDataFn('$1', '$2'));
+return [patternString, "$$ = " + (addLocationDataFn(1, patternCount)) + "(" + action + ");", options
 ];
 ...</pre></li>
     </ul>
@@ -6480,27 +6473,27 @@ helpers.<span class="apidocCodeKeywordSpan">extend</span>(global, {
   errorText = (function() {
     switch (false) {
       case errorToken !== tokens[tokens.length - 1]:
-        return &#x27;end of input&#x27;;
-      case errorTag !== &#x27;INDENT&#x27; &#x26;&#x26; errorTag !== &#x27;OUTDENT&#x27;:
-        return &#x27;indentation&#x27;;
-      case errorTag !== &#x27;IDENTIFIER&#x27; &#x26;&#x26; errorTag !== &#x27;NUMBER&#x27; &#x26;&#x26; errorTag !== &#x27;INFINITY&#x27; &#x26;&#x26; errorTag !== &#x27;STRING&#x27; &#x26;&#x26; errorTag !== &#x27;
-STRING_START&#x27; &#x26;&#x26; errorTag !== &#x27;REGEX&#x27; &#x26;&#x26; errorTag !== &#x27;REGEX_START&#x27;:
-        return errorTag.replace(/_START$/, &#x27;&#x27;).toLowerCase();
+        return 'end of input';
+      case errorTag !== 'INDENT' &amp;&amp; errorTag !== 'OUTDENT':
+        return 'indentation';
+      case errorTag !== 'IDENTIFIER' &amp;&amp; errorTag !== 'NUMBER' &amp;&amp; errorTag !== 'INFINITY' &amp;&amp; errorTag !== 'STRING' &amp;&amp; errorTag !== '
+STRING_START' &amp;&amp; errorTag !== 'REGEX' &amp;&amp; errorTag !== 'REGEX_START':
+        return errorTag.replace(/_START$/, '').toLowerCase();
       default:
         return helpers.nameWhitespaceCharacter(errorText);
     }
   })();
-  return helpers.throwSyntaxError(&#x22;unexpected &#x22; + errorText, errorLoc);
+  return helpers.throwSyntaxError("unexpected " + errorText, errorLoc);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
         }
     }
     if (lexer.showPosition) {
-        errStr = &#x27;Parse error on line &#x27; + (yylineno + 1) + &#x27;:\n&#x27; + lexer.showPosition() + &#x27;\nExpecting &#
-x27; + expected.join(&#x27;, &#x27;) + &#x27;, got\&#x27;&#x27; + (this.terminals_[symbol] || symbol) + &#x27;\&#x27;&#x27;;
+        errStr = 'Parse error on line ' + (yylineno + 1) + ':\n' + lexer.showPosition() + '\nExpecting &amp;#
+x27; + expected.join(', ') + ', got\'' + (this.terminals_[symbol] || symbol) + '\'';
     } else {
-        errStr = &#x27;Parse error on line &#x27; + (yylineno + 1) + &#x27;: Unexpected &#x27; + (symbol == EOF ? &#x27;end of input
-&#x27; : &#x27;\&#x27;&#x27; + (this.terminals_[symbol] || symbol) + &#x27;\&#x27;&#x27;);
+        errStr = 'Parse error on line ' + (yylineno + 1) + ': Unexpected ' + (symbol == EOF ? 'end of input
+' : '\'' + (this.terminals_[symbol] || symbol) + '\'');
     }
     this.<span class="apidocCodeKeywordSpan">parseError</span>(errStr, {
         text: lexer.match,
@@ -6533,11 +6526,11 @@ x27; + expected.join(&#x27;, &#x27;) + &#x27;, got\&#x27;&#x27; + (this.terminal
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 var arg, args, e, i, len, ref, results;
-global.__originalDirname = fs.realpathSync(&#x27;.&#x27;);
+global.__originalDirname = fs.realpathSync('.');
 process.chdir(cakefileDirectory(__originalDirname));
 args = process.argv.slice(2);
-CoffeeScript.run(fs.readFileSync(&#x27;Cakefile&#x27;).toString(), {
-  filename: &#x27;Cakefile&#x27;
+CoffeeScript.run(fs.readFileSync('Cakefile').toString(), {
+  filename: 'Cakefile'
 });
 oparse = new optparse.<span class="apidocCodeKeywordSpan">OptionParser</span>(switches);
 if (!args.length) {
@@ -6581,23 +6574,23 @@ try {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function commonjsMain(args) {
     if (!args[1]) {
-        console.log(&#x27;Usage: &#x27;+args[0]+&#x27; FILE&#x27;);
+        console.log('Usage: '+args[0]+' FILE');
         process.exit(1);
     }
-    var source = &#x27;&#x27;;
-    var fs = require(&#x27;fs&#x27;);
-    if (typeof fs !== &#x27;undefined&#x27; &#x26;&#x26; fs !== null)
-        source = fs.readFileSync(require(&#x27;path&#x27;).normalize(args[1]), &#x22;utf8&#x22;);
+    var source = '';
+    var fs = require('fs');
+    if (typeof fs !== 'undefined' &amp;&amp; fs !== null)
+        source = fs.readFileSync(require('path').normalize(args[1]), "utf8");
     return exports.parser.parse(source);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    var source = &#x27;&#x27;;
-    var fs = require(&#x27;fs&#x27;);
-    if (typeof fs !== &#x27;undefined&#x27; &#x26;&#x26; fs !== null)
-        source = fs.readFileSync(require(&#x27;path&#x27;).normalize(args[1]), &#x22;utf8&#x22;);
+    var source = '';
+    var fs = require('fs');
+    if (typeof fs !== 'undefined' &amp;&amp; fs !== null)
+        source = fs.readFileSync(require('path').normalize(args[1]), "utf8");
     return exports.parser.parse(source);
 };
-if (typeof module !== &#x27;undefined&#x27; &#x26;&#x26; require.main === module) {
+if (typeof module !== 'undefined' &amp;&amp; require.main === module) {
   exports.<span class="apidocCodeKeywordSpan">main</span>(process.argv.slice(1));
 }
 }
@@ -6615,7 +6608,7 @@ if (typeof module !== &#x27;undefined&#x27; &#x26;&#x26; require.main === module
     <ul>
     <li>description and source-code<pre class="apidocCodePre">parse = function () { return parser.parse.apply(parser, arguments); }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  filename: &#x27;Cakefile&#x27;
+  filename: 'Cakefile'
 });
 oparse = new optparse.OptionParser(switches);
 if (!args.length) {
@@ -6625,11 +6618,11 @@ try {
   options = oparse.<span class="apidocCodeKeywordSpan">parse</span>(args);
 } catch (error) {
   e = error;
-  return fatalError(&#x22;&#x22; + e);
+  return fatalError("" + e);
 }
-ref = options[&#x22;arguments&#x22;];
+ref = options["arguments"];
 results = [];
-for (i = 0, len = ref.length; i &#x3c; len; i++) {
+for (i = 0, len = ref.length; i &lt; len; i++) {
 ...</pre></li>
     </ul>
 
@@ -6654,30 +6647,30 @@ for (i = 0, len = ref.length; i &#x3c; len; i++) {
   if (opts == null) {
     opts = {};
   }
-  ref1 = process.versions.node.split(&#x27;.&#x27;).map(function(n) {
+  ref1 = process.versions.node.split('.').map(function(n) {
     return parseInt(n);
   }), major = ref1[0], minor = ref1[1], build = ref1[2];
-  if (major === 0 &#x26;&#x26; minor &#x3c; 8) {
-    console.warn(&#x22;Node 0.8.0+ required for CoffeeScript REPL&#x22;);
+  if (major === 0 &amp;&amp; minor &lt; 8) {
+    console.warn("Node 0.8.0+ required for CoffeeScript REPL");
     process.exit(1);
   }
   CoffeeScript.register();
-  process.argv = [&#x27;coffee&#x27;].concat(process.argv.slice(2));
+  process.argv = ['coffee'].concat(process.argv.slice(2));
   opts = merge(replDefaults, opts);
   repl = nodeREPL.start(opts);
   if (opts.prelude) {
-    runInContext(opts.prelude, repl.context, &#x27;prelude&#x27;);
+    runInContext(opts.prelude, repl.context, 'prelude');
   }
-  repl.on(&#x27;exit&#x27;, function() {
+  repl.on('exit', function() {
     if (!repl.rli.closed) {
-      return repl.outputStream.write(&#x27;\n&#x27;);
+      return repl.outputStream.write('\n');
     }
   });
   addMultilineHandler(repl);
   if (opts.historyFile) {
     addHistory(repl, opts.historyFile, opts.historyMaxInputSize);
   }
-  repl.commands[getCommandId(repl, &#x27;load&#x27;)].help = &#x27;Load code from a file into this REPL session&#x27;;
+  repl.commands[getCommandId(repl, 'load')].help = 'Load code from a file into this REPL session';
   return repl;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -6688,13 +6681,13 @@ if (opts.version) {
   return version();
 }
 if (opts.interactive) {
-  return require(&#x27;./repl&#x27;).<span class="apidocCodeKeywordSpan">start</span>(replCliOpts);
+  return require('./repl').<span class="apidocCodeKeywordSpan">start</span>(replCliOpts);
 }
 if (opts.stdio) {
   return compileStdio();
 }
-if (opts[&#x22;eval&#x22;]) {
-  return compileScript(null, opts[&#x22;arguments&#x22;][0]);
+if (opts["eval"]) {
+  return compileScript(null, opts["arguments"][0]);
 }
 ...</pre></li>
     </ul>
@@ -6737,21 +6730,21 @@ if (opts[&#x22;eval&#x22;]) {
   return Module._resolveFilename(request, self);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-if (!opts[&#x22;arguments&#x22;].length) {
-  return require(&#x27;./repl&#x27;).start(replCliOpts);
+if (!opts["arguments"].length) {
+  return require('./repl').start(replCliOpts);
 }
-literals = opts.run ? opts[&#x22;arguments&#x22;].splice(1) : [];
+literals = opts.run ? opts["arguments"].splice(1) : [];
 process.argv = process.argv.slice(0, 2).concat(literals);
-process.argv[0] = &#x27;coffee&#x27;;
+process.argv[0] = 'coffee';
 if (opts.output) {
   opts.output = path.<span class="apidocCodeKeywordSpan">resolve</span>(opts.output);
 }
 if (opts.join) {
   opts.join = path.resolve(opts.join);
-  console.error(&#x27;\nThe --join option is deprecated and will be removed in a future version.\n\nIf for some reason it\&#x27;
-s necessary to share local variables between files,\nreplace...\n\n    $ coffee --compile --join bundle.js -- a.coffee b.coffee c.coffee\n\nwith...\n\n    $ cat a.coffee b.coffee c.coffee | coffee --compile --stdio &#x3e; bundle.js\n&#x27;);
+  console.error('\nThe --join option is deprecated and will be removed in a future version.\n\nIf for some reason it\'
+s necessary to share local variables between files,\nreplace...\n\n    $ coffee --compile --join bundle.js -- a.coffee b.coffee c.coffee\n\nwith...\n\n    $ cat a.coffee b.coffee c.coffee | coffee --compile --stdio &gt; bundle.js\n');
 }
-ref1 = opts[&#x22;arguments&#x22;];
+ref1 = opts["arguments"];
 results = [];
 ...</pre></li>
     </ul>
@@ -6809,8 +6802,8 @@ results = [];
   this.referencedVars = referencedVars;
   this.variables = [
     {
-      name: &#x27;arguments&#x27;,
-      type: &#x27;arguments&#x27;
+      name: 'arguments',
+      type: 'arguments'
     }
   ];
   this.positions = {};
@@ -6868,20 +6861,20 @@ results = [];
     <li>example usage<pre class="apidocCodePre">...
 }
 currentColumn = 0;
-js = &#x22;&#x22;;
-for (j = 0, len1 = fragments.length; j &#x3c; len1; j++) {
+js = "";
+for (j = 0, len1 = fragments.length; j &lt; len1; j++) {
   fragment = fragments[j];
   if (generateSourceMap) {
-    if (fragment.locationData &#x26;&#x26; !/^[;\s]*$/.test(fragment.code)) {
+    if (fragment.locationData &amp;&amp; !/^[;\s]*$/.test(fragment.code)) {
       map.<span class="apidocCodeKeywordSpan">add</span>([fragment.locationData.first_line, fragment.locationData.first_column], [
 currentLine, currentColumn], {
         noReplace: true
       });
     }
-    newLines = helpers.count(fragment.code, &#x22;\n&#x22;);
+    newLines = helpers.count(fragment.code, "\n");
     currentLine += newLines;
     if (newLines) {
-      currentColumn = fragment.code.length - (fragment.code.lastIndexOf(&#x22;\n&#x22;) + 1);
+      currentColumn = fragment.code.length - (fragment.code.lastIndexOf("\n") + 1);
 ...</pre></li>
     </ul>
 
@@ -6896,14 +6889,14 @@ currentLine, currentColumn], {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">encodeBase64 = function (value) {
   return BASE64_CHARS[value] || (function() {
-    throw new Error(&#x22;Cannot Base64 encode value: &#x22; + value);
+    throw new Error("Cannot Base64 encode value: " + value);
   })();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  valueToEncode = (Math.abs(value) &#x3c;&#x3c; 1) + signBit;
+  valueToEncode = (Math.abs(value) &lt;&lt; 1) + signBit;
   while (valueToEncode || !answer) {
-    nextChunk = valueToEncode &#x26; VLQ_VALUE_MASK;
-    valueToEncode = valueToEncode &#x3e;&#x3e; VLQ_SHIFT;
+    nextChunk = valueToEncode &amp; VLQ_VALUE_MASK;
+    valueToEncode = valueToEncode &gt;&gt; VLQ_SHIFT;
     if (valueToEncode) {
       nextChunk |= VLQ_CONTINUATION_BIT;
     }
@@ -6912,7 +6905,7 @@ currentLine, currentColumn], {
   return answer;
 };
 
-BASE64_CHARS = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;;
+BASE64_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 SourceMap.prototype.encodeBase64 = function(value) {
 ...</pre></li>
@@ -6929,12 +6922,12 @@ SourceMap.prototype.encodeBase64 = function(value) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">encodeVlq = function (value) {
   var answer, nextChunk, signBit, valueToEncode;
-  answer = &#x27;&#x27;;
-  signBit = value &#x3c; 0 ? 1 : 0;
-  valueToEncode = (Math.abs(value) &#x3c;&#x3c; 1) + signBit;
+  answer = '';
+  signBit = value &lt; 0 ? 1 : 0;
+  valueToEncode = (Math.abs(value) &lt;&lt; 1) + signBit;
   while (valueToEncode || !answer) {
-    nextChunk = valueToEncode &#x26; VLQ_VALUE_MASK;
-    valueToEncode = valueToEncode &#x3e;&#x3e; VLQ_SHIFT;
+    nextChunk = valueToEncode &amp; VLQ_VALUE_MASK;
+    valueToEncode = valueToEncode &gt;&gt; VLQ_SHIFT;
     if (valueToEncode) {
       nextChunk |= VLQ_CONTINUATION_BIT;
     }
@@ -6943,11 +6936,11 @@ SourceMap.prototype.encodeBase64 = function(value) {
   return answer;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  buffer += &#x22;;&#x22;;
+  buffer += ";";
   writingline++;
 }
 if (needComma) {
-  buffer += &#x22;,&#x22;;
+  buffer += ",";
   needComma = false;
 }
 buffer += this.<span class="apidocCodeKeywordSpan">encodeVlq</span>(mapping.column - lastColumn);
@@ -6984,25 +6977,25 @@ v3, writingline;
   lastSourceLine = 0;
   lastSourceColumn = 0;
   needComma = false;
-  buffer = &#x22;&#x22;;
+  buffer = "";
   ref = this.lines;
-  for (lineNumber = i = 0, len = ref.length; i &#x3c; len; lineNumber = ++i) {
+  for (lineNumber = i = 0, len = ref.length; i &lt; len; lineNumber = ++i) {
     lineMap = ref[lineNumber];
     if (lineMap) {
       ref1 = lineMap.columns;
-      for (j = 0, len1 = ref1.length; j &#x3c; len1; j++) {
+      for (j = 0, len1 = ref1.length; j &lt; len1; j++) {
         mapping = ref1[j];
         if (!(mapping)) {
           continue;
         }
-        while (writingline &#x3c; mapping.line) {
+        while (writingline &lt; mapping.line) {
           lastColumn = 0;
           needComma = false;
-          buffer += &#x22;;&#x22;;
+          buffer += ";";
           writingline++;
         }
         if (needComma) {
-          buffer += &#x22;,&#x22;;
+          buffer += ",";
           needComma = false;
         }
         buffer += this.encodeVlq(mapping.column - lastColumn);
@@ -7018,9 +7011,9 @@ v3, writingline;
   }
   v3 = {
     version: 3,
-    file: options.generatedFile || &#x27;&#x27;,
-    sourceRoot: options.sourceRoot || &#x27;&#x27;,
-    sources: options.sourceFiles || [&#x27;&#x27;],
+    file: options.generatedFile || '',
+    sourceRoot: options.sourceRoot || '',
+    sources: options.sourceFiles || [''],
     names: [],
     mappings: buffer
   };
@@ -7033,8 +7026,8 @@ v3, writingline;
   js += fragment.code;
 }
 if (options.header) {
-  header = &#x22;Generated by CoffeeScript &#x22; + this.VERSION;
-  js = &#x22;// &#x22; + header + &#x22;\n&#x22; + js;
+  header = "Generated by CoffeeScript " + this.VERSION;
+  js = "// " + header + "\n" + js;
 }
 if (generateSourceMap) {
   v3SourceMap = map.<span class="apidocCodeKeywordSpan">generate</span>(options, code);
@@ -7042,9 +7035,9 @@ if (generateSourceMap) {
 }
 if (options.inlineMap) {
   encoded = base64encode(JSON.stringify(v3SourceMap));
-  sourceMapDataURI = &#x22;//# sourceMappingURL=data:application/json;base64,&#x22; + encoded;
-  sourceURL = &#x22;//# sourceURL=&#x22; + ((ref1 = options.filename) != null ? ref1 : &#x27;coffeescript&#x27;);
-  js = js + &#x22;\n&#x22; + sourceMapDataURI + &#x22;\n&#x22; + sourceURL;
+  sourceMapDataURI = "//# sourceMappingURL=data:application/json;base64," + encoded;
+  sourceURL = "//# sourceURL=" + ((ref1 = options.filename) != null ? ref1 : 'coffeescript');
+  js = js + "\n" + sourceMapDataURI + "\n" + sourceURL;
 ...</pre></li>
     </ul>
 
@@ -7060,10 +7053,10 @@ if (options.inlineMap) {
     <li>description and source-code<pre class="apidocCodePre">sourceLocation = function (arg) {
   var column, line, lineMap;
   line = arg[0], column = arg[1];
-  while (!((lineMap = this.lines[line]) || (line &#x3c;= 0))) {
+  while (!((lineMap = this.lines[line]) || (line &lt;= 0))) {
     line--;
   }
-  return lineMap &#x26;&#x26; lineMap.sourceLocation(column);
+  return lineMap &amp;&amp; lineMap.sourceLocation(column);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
@@ -7093,3 +7086,4 @@ getSourceMapping = function(filename, line, column) {
     ]
 </div>
 </div>
+</body></html>
